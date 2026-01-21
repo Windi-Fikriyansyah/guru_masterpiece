@@ -26,6 +26,7 @@ class RppController extends Controller
             'waktu' => 'required',
             'tujuan' => 'required',
             'model' => 'required',
+            'pendekatan' => 'required',
         ]);
 
         try {
@@ -39,6 +40,7 @@ Topik Utama: {$request->topik}
 Alokasi Waktu: {$request->waktu}
 Tujuan Pembelajaran: {$request->tujuan}
 Model Pembelajaran: {$request->model}
+Pendekatan: {$request->pendekatan}
 Instruksi Khusus: {$request->instruksi}
 
 PENTING: Langsung mulai dengan judul RPP/Modul Ajar tanpa kalimat pembuka atau pengantar apapun. JANGAN tulis kalimat seperti 'Tentu, berikut adalah...' atau 'Ini adalah RPP yang...'. Langsung tulis konten RPP dimulai dari heading judul.

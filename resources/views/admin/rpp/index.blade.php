@@ -81,7 +81,7 @@
                     </div>
 
                     <!-- Model Pembelajaran -->
-                    <div class="space-y-2 md:col-span-2">
+                    <div class="space-y-2">
                         <label for="model" class="text-sm font-bold text-slate-700 ml-1">Model Pembelajaran</label>
                         <select id="model" name="model" class="search-select w-full" required>
                             <option value="">Pilih Model</option>
@@ -92,6 +92,19 @@
                             <option value="cooperative">Cooperative Learning</option>
                             <option value="direct">Direct Instruction</option>
                         </select>
+                    </div>
+
+                    <!-- Pendekatan -->
+                    <div class="space-y-2">
+                        <label for="pendekatan" class="text-sm font-bold text-slate-700 ml-1">Pendekatan</label>
+                        <select id="pendekatan" name="pendekatan" class="search-select w-full" required>
+                            <option value="">Pilih Pendekatan</option>
+                            <option value="Pembelajaran Mendalam">Pembelajaran Mendalam</option>
+                            <option value="__other__">Lainnya...</option>
+                        </select>
+                        <div id="manual_pendekatan_container" class="mt-2 hidden">
+                            <input type="text" id="pendekatan_manual" name="pendekatan_manual" placeholder="Masukkan Pendekatan manually" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400">
+                        </div>
                     </div>
 
                     <!-- Tujuan Pembelajaran -->
@@ -443,6 +456,17 @@
             }
         });
 
+        // Handle Pendekatan Selection
+        $('#pendekatan').on('change', function() {
+            if ($(this).val() === '__other__') {
+                $('#manual_pendekatan_container').removeClass('hidden');
+                $('#pendekatan_manual').prop('required', true).focus();
+            } else {
+                $('#manual_pendekatan_container').addClass('hidden');
+                $('#pendekatan_manual').prop('required', false);
+            }
+        });
+
         // AJAX Generate RPP
         const $form = $('#rppForm');
         const $btn = $('#generateBtn');
@@ -475,6 +499,11 @@
             if ($('#mapel').val() === '__other__') {
                 const manualVal = $('#mapel_manual').val();
                 formData = formData.replace(/mapel=[^&]*/, 'mapel=' + encodeURIComponent(manualVal));
+            }
+
+            if ($('#pendekatan').val() === '__other__') {
+                const manualPendekatan = $('#pendekatan_manual').val();
+                formData = formData.replace(/pendekatan=[^&]*/, 'pendekatan=' + encodeURIComponent(manualPendekatan));
             }
 
             $.ajax({

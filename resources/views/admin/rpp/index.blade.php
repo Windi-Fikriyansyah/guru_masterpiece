@@ -8,7 +8,7 @@
 <div class="max-w-4xl mx-auto">
     <!-- Header Section -->
     <div class="mb-10 text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Buat RPP Otomatis</h2>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Buat RPM/RPP/MODUL AJAR Otomatis</h2>
         <p class="text-slate-500">Gunakan kecerdasan buatan untuk merancang rencana pembelajaran yang komprehensif dalam hitungan detik.</p>
     </div>
 

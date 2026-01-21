@@ -178,12 +178,15 @@
                     <label for="jenjang" class="block text-sm font-bold text-slate-700 ml-1">Jenjang</label>
                     <select name="jenjang" id="jenjang" class="w-full select2-enable" required>
                         <option value="">Pilih Jenjang</option>
-                        <option value="PAUD/TK">PAUD/TK</option>
-                        <option value="SD/MI">SD/MI</option>
-                        <option value="SMP/MTS">SMP/MTS</option>
-                        <option value="SMA/MA/SMK">SMA/MA/SMK</option>
-                        <option value="Kuliah">Kuliah</option>
-                        <option value="Umum">Umum</option>
+                        <option value="paud">PAUD/TK</option>
+                        <option value="sd">SD</option>
+                        <option value="mi">MI</option>
+                        <option value="smp">SMP</option>
+                        <option value="mts">MTs</option>
+                        <option value="sma">SMA</option>
+                        <option value="ma">MA</option>
+                        <option value="smk">SMK</option>
+                        <option value="umum">Umum</option>
                     </select>
                 </div>
 
@@ -201,7 +204,11 @@
                         @foreach($subjects as $subject)
                             <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                         @endforeach
+                        <option value="__other__">Lainnya...</option>
                     </select>
+                    <div id="manual_mapel_container" class="mt-2 hidden">
+                        <input type="text" id="mapel_manual" name="mapel_manual" placeholder="Masukkan Mata Pelajaran manually" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400">
+                    </div>
                 </div>
             </div>
 
@@ -314,6 +321,17 @@
             width: '100%'
         });
 
+        // Handle Subject Selection
+        $('#mapel').on('change', function() {
+            if ($(this).val() === '__other__') {
+                $('#manual_mapel_container').removeClass('hidden');
+                $('#mapel_manual').prop('required', true).focus();
+            } else {
+                $('#manual_mapel_container').addClass('hidden');
+                $('#mapel_manual').prop('required', false);
+            }
+        });
+
         // Handle Form Submission
         $('#iceBreakingForm').on('submit', function(e) {
             e.preventDefault();
@@ -340,10 +358,16 @@
                 scrollTop: resultSection.offset().top - 150
             }, 500);
 
+            let formData = $(this).serialize();
+            if ($('#mapel').val() === '__other__') {
+                const manualVal = $('#mapel_manual').val();
+                formData = formData.replace(/mapel=[^&]*/, 'mapel=' + encodeURIComponent(manualVal));
+            }
+
             $.ajax({
                 url: "{{ route('admin.ice_breaking.generate') }}",
                 method: 'POST',
-                data: $(this).serialize(),
+                data: formData,
                 success: function(response) {
                     if(response.result) {
                         const htmlContent = marked.parse(response.result);

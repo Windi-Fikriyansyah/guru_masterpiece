@@ -25,6 +25,8 @@
                             <option value="">Pilih Kurikulum</option>
                             <option value="merdeka">Kurikulum Merdeka</option>
                             <option value="k13">Kurikulum 2013 (K13)</option>
+                            <option value="KBC">KBC</option>
+                            <option value="Internasional">Kurikulum Internasional</option>
                         </select>
                     </div>
 
@@ -34,10 +36,14 @@
                         <select id="jenjang" name="jenjang" class="search-select w-full" required>
                             <option value="">Pilih Jenjang</option>
                             <option value="paud">PAUD/TK</option>
-                            <option value="sd">SD/MI</option>
-                            <option value="smp">SMP/MTs</option>
-                            <option value="sma">SMA/MA</option>
+                            <option value="sd">SD</option>
+                            <option value="mi">MI</option>
+                            <option value="smp">SMP</option>
+                            <option value="mts">MTs</option>
+                            <option value="sma">SMA</option>
+                            <option value="ma">MA</option>
                             <option value="smk">SMK</option>
+                            <option value="umum">Umum</option>
                         </select>
                     </div>
 
@@ -55,7 +61,11 @@
                             @foreach($subjects as $subject)
                                 <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach
+                            <option value="__other__">Lainnya...</option>
                         </select>
+                        <div id="manual_mapel_container" class="mt-2 hidden">
+                            <input type="text" id="mapel_manual" name="mapel_manual" placeholder="Masukkan Mata Pelajaran manually" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400">
+                        </div>
                     </div>
 
                     <!-- Topik Utama -->
@@ -418,9 +428,19 @@
 <script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script>
 <script>
     $(document).ready(function() {
-        // Initialize Select2
         $('.search-select').select2({
             width: '100%'
+        });
+
+        // Handle Subject Selection
+        $('#mapel').on('change', function() {
+            if ($(this).val() === '__other__') {
+                $('#manual_mapel_container').removeClass('hidden');
+                $('#mapel_manual').prop('required', true).focus();
+            } else {
+                $('#manual_mapel_container').addClass('hidden');
+                $('#mapel_manual').prop('required', false);
+            }
         });
 
         // AJAX Generate RPP
@@ -451,10 +471,16 @@
                 scrollTop: $resultSection.offset().top - 100
             }, 300);
 
+            let formData = $(this).serialize();
+            if ($('#mapel').val() === '__other__') {
+                const manualVal = $('#mapel_manual').val();
+                formData = formData.replace(/mapel=[^&]*/, 'mapel=' + encodeURIComponent(manualVal));
+            }
+
             $.ajax({
                 url: "{{ route('admin.rpp.generate') }}",
                 method: 'POST',
-                data: $(this).serialize(),
+                data: formData,
                 success: function(response) {
                     if (response.result) {
                         // Render Markdown

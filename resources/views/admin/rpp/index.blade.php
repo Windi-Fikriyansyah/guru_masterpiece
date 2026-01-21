@@ -49,13 +49,13 @@
 
                     <!-- Kelas/Kelompok -->
                     <div class="space-y-2">
-                        <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Kelas/Kelompok</label>
-                        <input type="text" id="kelas" name="kelas" placeholder="Contoh: TK A atau Kelompok B" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400" required>
+                        <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Kelas/Fase</label>
+                        <input type="text" id="kelas" name="kelas" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400" required>
                     </div>
 
                     <!-- Mata Pelajaran -->
                     <div class="space-y-2">
-                        <label for="mapel" class="text-sm font-bold text-slate-700 ml-1">Mata Pelajaran / Lingkup Perkembangan</label>
+                        <label for="mapel" class="text-sm font-bold text-slate-700 ml-1">Mata Pelajaran</label>
                         <select id="mapel" name="mapel" class="search-select w-full" required>
                             <option value="">Pilih Mata Pelajaran</option>
                             @foreach($subjects as $subject)
@@ -70,14 +70,14 @@
 
                     <!-- Topik Utama -->
                     <div class="space-y-2">
-                        <label for="topik" class="text-sm font-bold text-slate-700 ml-1">Topik Utama</label>
-                        <input type="text" id="topik" name="topik" placeholder="Masukkan topik utama" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400" required>
+                        <label for="topik" class="text-sm font-bold text-slate-700 ml-1">Topik/Materi Ajar</label>
+                        <input type="text" id="topik" name="topik" placeholder="Masukkan Topik atau Materi Ajar" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400" required>
                     </div>
 
                     <!-- Alokasi Waktu -->
                     <div class="space-y-2">
                         <label for="waktu" class="text-sm font-bold text-slate-700 ml-1">Alokasi Waktu</label>
-                        <input type="text" id="waktu" name="waktu" placeholder="Contoh: 1 Minggu atau 2 x 35 Menit" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400" required>
+                        <input type="text" id="waktu" name="waktu" placeholder="Contoh: 2x45 Menit (2JP)" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400" required>
                     </div>
 
                     <!-- Model Pembelajaran -->

@@ -192,13 +192,13 @@
 
                 <!-- Kelas/Kelompok -->
                 <div class="space-y-2">
-                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas / Kelompok</label>
-                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: TK A atau Kelompok B" required>
+                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Fase</label>
+                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" required>
                 </div>
 
                 <!-- Mata Pelajaran -->
                 <div class="space-y-2">
-                    <label for="mapel" class="block text-sm font-bold text-slate-700 ml-1">Mata Pelajaran / Lingkup Perkembangan</label>
+                    <label for="mapel" class="block text-sm font-bold text-slate-700 ml-1">Mata Pelajaran</label>
                     <select name="mapel" id="mapel" class="w-full select2-enable" required>
                         <option value="">Pilih Mata Pelajaran</option>
                         @foreach($subjects as $subject)

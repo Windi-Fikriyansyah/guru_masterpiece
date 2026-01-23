@@ -28,24 +28,8 @@
                             <input type="text" name="nama_guru" placeholder="Contoh: Budi Santoso, S.Pd"
                                 class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Semester</label>
-                            <select name="semester" class="search-select w-full" required>
-                                <option value="">Pilih Semester</option>
-                                <option value="Ganjil">Ganjil</option>
-                                <option value="Genap">Genap</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Kota / Kabupaten</label>
-                            <input type="text" name="kota" placeholder="Contoh: Kabupaten Kubu Raya"
-                                class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Nama Kepala Sekolah</label>
-                            <input type="text" name="kepala_sekolah" placeholder="Contoh: Drs. Ahmad Yani"
-                                class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
-                        </div>
+                       
+                        
 
                         <!-- Kurikulum -->
                         <div class="space-y-2">
@@ -78,7 +62,7 @@
 
                         <!-- Kelas/Kelompok -->
                         <div class="space-y-2">
-                            <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Kelas/Fase</label>
+                            <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Kelas/Fase/Semester</label>
                             <input type="text" id="kelas" name="kelas"
                                 placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E"
                                 class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400"

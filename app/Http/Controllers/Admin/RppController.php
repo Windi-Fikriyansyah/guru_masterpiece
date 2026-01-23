@@ -34,7 +34,7 @@ class RppController extends Controller
 Nama Sekolah      : {$request->nama_sekolah}
 Nama Guru         : {$request->nama_guru}
 Jenjang           : {$request->jenjang}
-Fase/Kelas/Semester : {$request->kelas} / {$request->semester}
+Kelas/Fase/Semester : {$request->kelas}
 Mata Pelajaran    : {$request->mapel}
 Topik             : {$request->topik}
 Alokasi Waktu     : {$request->waktu}

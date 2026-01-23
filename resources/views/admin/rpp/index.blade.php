@@ -144,10 +144,9 @@
 
                         <!-- Instruksi Khusus -->
                         <div class="space-y-2 md:col-span-2">
-                            <label for="instruksi" class="text-sm font-bold text-slate-700 ml-1">Instruksi/Keinginan
-                                Khusus</label>
+                            <label for="instruksi" class="text-sm font-bold text-slate-700 ml-1">Intruksi Khusus</label>
                             <textarea id="instruksi" name="instruksi" rows="3"
-                                placeholder="Sebutkan keinginan khusus lainnya (misal: fokus pada aktivitas outdoor)"
+                                placeholder="Buatkan isi rencana pembelajaran dengan lengkap dan....."
                                 class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400 resize-none"></textarea>
                         </div>
                     </div>

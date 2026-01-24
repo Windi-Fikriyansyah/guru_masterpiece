@@ -31,123 +31,134 @@ class RppController extends Controller
 
         try {
             $prompt = <<<PROMPT
-Nama Sekolah      : {$request->nama_sekolah}
-Nama Guru         : {$request->nama_guru}
-Jenjang           : {$request->jenjang}
+Nama Sekolah        : {$request->nama_sekolah}
+Nama Guru           : {$request->nama_guru}
+Jenjang             : {$request->jenjang}
 Fase/Kelas/Semester : {$request->kelas} / {$request->semester}
-Mata Pelajaran    : {$request->mapel}
-Topik             : {$request->topik}
-Alokasi Waktu     : {$request->waktu}
-Model Pembelajaran: {$request->model}
-Pendekatan        : {$request->pendekatan}
-Tujuan Pembelajaran:
+Mata Pelajaran      : {$request->mapel}
+Topik               : {$request->topik}
+Alokasi Waktu       : {$request->waktu}
+Model Pembelajaran  : {$request->model}
+Pendekatan          : {$request->pendekatan}
+Tujuan Pembelajaran :
 {$request->tujuan}
 
 Instruksi Khusus:
 {$request->instruksi}
 
---------------------------------------------
+==================================================
 
-Buatkan **Perencanaan Pembelajaran (Modul Ajar)** dengan **format resmi Kurikulum Merdeka Belajar** berdasarkan data di atas.
+BUATKAN **MODUL AJAR KURIKULUM MERDEKA** SECARA RESMI DAN ADMINISTRATIF.
 
-⚠️ **KETENTUAN PENTING**
-- Langsung mulai dengan **JUDUL MODUL AJAR**
-- **JANGAN** menulis kalimat pembuka seperti:
-  "Berikut ini...", "Tentu...", "Saya akan..."
-- Gunakan **bahasa formal, baku, dan administratif pendidikan Indonesia**
-- Sajikan **dalam bentuk TABEL yang rapi (Markdown standard)**
-- Terapkan **pembelajaran mendalam** dengan prinsip:
-  **berkesadaran, bermakna, dan menggembirakan**
-- Gunakan pemisah baris tabel yang simpel (cukup 3 tanda hubung: `---`)
+⚠️ **ATURAN KERAS (WAJIB DIPATUHI)**
+- LANGSUNG mulai dengan **JUDUL: MODUL AJAR**
+- **DILARANG** menulis kata pembuka seperti:
+  “Berikut ini…”, “Tentu…”, “Saya akan…”, “Adapun…”
+- Gunakan **bahasa baku, formal, administratif pendidikan Indonesia**
+- **SEMUA BAGIAN WAJIB DALAM BENTUK TABEL (Markdown)**
+- Tidak boleh ada paragraf narasi di luar tabel
+- Terapkan **pembelajaran mendalam**:
+  berkesadaran, bermakna, dan menggembirakan
+- Gunakan pemisah tabel standar Markdown (`| --- |`)
 
----
+==================================================
 
-### STRUKTUR WAJIB MODUL AJAR
+## MODUL AJAR
 
-#### 1. IDENTIFIKASI
-Buatkan tabel yang memuat:
-- Kesiapan Materi
-- Karakteristik Murid
-- Dimensi Profil Lulusan (wajib semua):
-  - DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME
-  - DPL2 Kewargaan
-  - DPL3 Penalaran Kritis
-  - DPL4 Kreativitas
-  - DPL5 Kolaborasi
-  - DPL6 Kemandirian
-  - DPL7 Kesehatan
-  - DPL8 Komunikasi
-
----
-
-#### 2. DESAIN PEMBELAJARAN
-Dalam bentuk tabel, jelaskan secara rinci:
-- Tujuan Pembelajaran
-- Praktik Pedagogis
-- Kemitraan Pembelajaran
-- Lingkungan Pembelajaran
-- Pemanfaatan Teknologi/Digital
+### A. IDENTITAS MODUL
+| Komponen | Uraian |
+| :--- | :--- |
+| Nama Sekolah | |
+| Mata Pelajaran | |
+| Fase / Kelas / Semester | |
+| Topik | |
+| Alokasi Waktu | |
+| Model Pembelajaran | |
+| Pendekatan Pembelajaran | |
+| Nama Guru | |
 
 ---
 
-#### 3. PENGALAMAN BELAJAR
-Buat tabel **Langkah-Langkah Pembelajaran** yang terdiri dari:
-
-**a. Kegiatan Pendahuluan**
-- Jumlah menit
-- Prinsip pembelajaran yang digunakan
-- Uraian langkah kegiatan
-
-**b. Kegiatan Inti**
-- Jumlah menit
-- Prinsip pembelajaran yang digunakan
-- Aktivitas guru dan peserta didik
-- Keterkaitan dengan Dimensi Profil Lulusan
-
-**c. Kegiatan Penutup**
-- Jumlah menit
-- Prinsip pembelajaran yang digunakan
-- Refleksi dan tindak lanjut
+### B. IDENTIFIKASI
+| Aspek | Deskripsi |
+| :--- | :--- |
+| Kesiapan Materi | |
+| Karakteristik Murid | |
+| DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME | |
+| DPL2 Kewargaan | |
+| DPL3 Penalaran Kritis | |
+| DPL4 Kreativitas | |
+| DPL5 Kolaborasi | |
+| DPL6 Kemandirian | |
+| DPL7 Kesehatan | |
+| DPL8 Komunikasi | |
 
 ---
 
-#### 4. ASESMEN PEMBELAJARAN
-Buat tabel asesmen yang memuat:
-- Asesmen Awal (diagnostik)
-- Asesmen Proses (formatif)
-- Asesmen Akhir (sumatif)
-
-Pastikan asesmen mencakup:
-- **Asesmen sebagai pembelajaran**
-- **Asesmen untuk pembelajaran**
-- **Asesmen hasil pembelajaran**
-
-Lengkapi dengan:
-- Teknik asesmen
-- Instrumen
-- Kriteria penilaian
+### C. DESAIN PEMBELAJARAN
+| Komponen | Uraian |
+| :--- | :--- |
+| Tujuan Pembelajaran | |
+| Praktik Pedagogis | |
+| Kemitraan Pembelajaran | |
+| Lingkungan Pembelajaran | |
+| Pemanfaatan Teknologi / Media Digital | |
 
 ---
 
-#### 5. PENUTUP DOKUMEN
-Akhiri Modul Ajar dengan format resmi berikut:
+### D. PENGALAMAN BELAJAR
 
-Mengetahui,
-Kepala Sekolah
-Nama Kota/Kabupaten
+#### 1. Kegiatan Pendahuluan
+| Waktu (Menit) | Prinsip Pembelajaran | Langkah Kegiatan |
+| :--- | :--- | :--- |
 
-( Tanda Tangan )
-**Nama Kepala Sekolah**
+#### 2. Kegiatan Inti
+| Waktu (Menit) | Aktivitas Guru & Peserta Didik | Dimensi Profil Lulusan |
+| :--- | :--- | :--- |
+
+#### 3. Kegiatan Penutup
+| Waktu (Menit) | Prinsip Pembelajaran | Refleksi & Tindak Lanjut |
+| :--- | :--- | :--- |
 
 ---
 
-Guru Kelas / Guru Mata Pelajaran
+### E. ASESMEN PEMBELAJARAN
+(Wajib dalam bentuk tabel terpisah, jangan digabung dengan teks lain)
 
-( Tanda Tangan )
-**Nama Guru**
+| Jenis Asesmen | Tujuan | Teknik | Instrumen | Kriteria |
+| :--- | :--- | :--- | :--- | :--- |
+| Asesmen Awal (Diagnostik) | | | | |
+| Asesmen Proses (Formatif) | | | | |
+| Asesmen Akhir (Sumatif) | | | | |
+
+---
+
+### F. PENGESAHAN
+
+| Mengetahui | |
+| :--- | :--- |
+| Kepala Sekolah | |
+| Nama Kota / Kabupaten | |
+| Tanda Tangan | |
+| Nama Kepala Sekolah | |
+
+<br>
+
+| Guru Mata Pelajaran | |
+| :--- | :--- |
+| Tanda Tangan | |
+| Nama Guru | |
+
+==================================================
+
+ISI SEMUA TABEL SECARA LENGKAP, REALISTIS, DAN SIAP DIGUNAKAN DALAM PEMBELAJARAN NYATA.
+PASTIKAN SETIAP TABEL MEMILIKI BARIS KOSONG SEBELUM DAN SESUDAHNYA AGAR TERRENDER DENGAN BENAR.
 PROMPT;
 
-            $apiKey = config('services.gemini.key');
+
+            $apiKey = $request->input('api_key')
+                ?: config('services.gemini.key');
+
 
             if (empty($apiKey)) {
                 return response()->json(['error' => 'Gemini API Key belum dikonfigurasi. Harap tambahkan GEMINI_API_KEY di file .env'], 500);
@@ -155,7 +166,7 @@ PROMPT;
 
             // Try multiple models in case one is overloaded
             $models = [
-                
+
                 'gemini-2.5-flash',
                 'gemini-1.5-pro',
             ];
@@ -185,7 +196,7 @@ PROMPT;
 
                         $lastError = $response->body(); // Get full body for better debugging
                         $errorMessage = $response->json('error.message', 'Unknown error');
-                        
+
                         \Log::warning("Gemini Model {$model} failed (Attempt {$attempt})", [
                             'status' => $response->status(),
                             'error' => $errorMessage

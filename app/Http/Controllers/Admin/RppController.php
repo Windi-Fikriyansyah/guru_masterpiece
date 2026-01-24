@@ -31,128 +31,39 @@ class RppController extends Controller
 
         try {
             $prompt = <<<PROMPT
-Nama Sekolah        : {$request->nama_sekolah}
-Nama Guru           : {$request->nama_guru}
-Jenjang             : {$request->jenjang}
-Fase/Kelas/Semester : {$request->kelas} / {$request->semester}
-Mata Pelajaran      : {$request->mapel}
-Topik               : {$request->topik}
-Alokasi Waktu       : {$request->waktu}
-Model Pembelajaran  : {$request->model}
-Pendekatan          : {$request->pendekatan}
-Tujuan Pembelajaran :
-{$request->tujuan}
+ASISTEN: Kamu adalah pakar kurikulum pendidikan Indonesia.
+TUGAS: Buatkan Rencana Pembelajaran berdasarkan Kurikulum yang dipilih.
 
-Instruksi Khusus:
-{$request->instruksi}
+DATA INPUT:
+- Sekolah: {$request->nama_sekolah}
+- Guru: {$request->nama_guru}
+- Kurikulum: {$request->kurikulum}
+- Jenjang: {$request->jenjang}
+- Fase/Kelas/Semester: {$request->kelas}
+- Mapel: {$request->mapel}
+- Topik: {$request->topik}
+- Alokasi Waktu: {$request->waktu}
+- Model: {$request->model}
+- Pendekatan: {$request->pendekatan}
+- Tujuan: {$request->tujuan}
+- Instruksi Tambahan: {$request->instruksi}
 
-==================================================
+ATURAN KERAS (WAJIB DIPATUHI):
+1. JANGAN memberikan kata pembuka/preambule (Contoh: "Tentu...", "Berikut adalah...", "Baik saya akan...").
+2. JANGAN memberikan komentar atau koreksi terhadap data input. Ikuti saja data yang diberikan.
+3. LANGSUNG mulai output dengan judul: **MODUL AJAR [NAMA MAPEL]** (atau RPP jika Kurikulum 2013).
+4. SEMUA komponen (Identifikasi/Identitas, Desain Pembelajaran, Pengalaman Belajar, Asesmen) WAJIB disajikan dalam format TABEL Markdown yang bersih dan siap pakai.
+5. Gunakan format tabel standar: | Kolom 1 | Kolom 2 | dengan pemisah | --- | --- |.
+6. Tabel Identifikasi/Identitas WAJIB memiliki susunan baris: Nama Sekolah, Nama Guru, Mata Pelajaran, Fase/Kelas/Semester (WAJIB DIGABUNG), Alokasi Waktu. JANGAN memisahkan Semester di baris tersendiri.
 
-BUATKAN **MODUL AJAR KURIKULUM MERDEKA** SECARA RESMI DAN ADMINISTRATIF.
+STRUKTUR OUTPUT:
+1. Tabel Identifikasi (Gunakan baris "Fase/Kelas/Semester" yang digabung)
+2. Tabel Identifikasi DPL1-DPL8 (jika Kurikulum Merdeka)
+3. Tabel Desain Pembelajaran
+4. Tabel Pengalaman Belajar (Pendahuluan, Inti, Penutup + Waktu)
+5. Tabel Asesmen (Awal, Proses, Akhir) dengan prinsip pembelajaran mendalam.
 
-⚠️ **ATURAN KERAS (WAJIB DIPATUHI)**
-- LANGSUNG mulai dengan **JUDUL: MODUL AJAR**
-- **DILARANG** menulis kata pembuka seperti:
-  “Berikut ini…”, “Tentu…”, “Saya akan…”, “Adapun…”
-- Gunakan **bahasa baku, formal, administratif pendidikan Indonesia**
-- **SEMUA BAGIAN WAJIB DALAM BENTUK TABEL (Markdown)**
-- Tidak boleh ada paragraf narasi di luar tabel
-- Terapkan **pembelajaran mendalam**:
-  berkesadaran, bermakna, dan menggembirakan
-- Gunakan pemisah tabel standar Markdown (`| --- |`)
-
-==================================================
-
-## MODUL AJAR
-
-### A. IDENTITAS MODUL
-| Komponen | Uraian |
-| :--- | :--- |
-| Nama Sekolah | |
-| Mata Pelajaran | |
-| Fase / Kelas / Semester | |
-| Topik | |
-| Alokasi Waktu | |
-| Model Pembelajaran | |
-| Pendekatan Pembelajaran | |
-| Nama Guru | |
-
----
-
-### B. IDENTIFIKASI
-| Aspek | Deskripsi |
-| :--- | :--- |
-| Kesiapan Materi | |
-| Karakteristik Murid | |
-| DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME | |
-| DPL2 Kewargaan | |
-| DPL3 Penalaran Kritis | |
-| DPL4 Kreativitas | |
-| DPL5 Kolaborasi | |
-| DPL6 Kemandirian | |
-| DPL7 Kesehatan | |
-| DPL8 Komunikasi | |
-
----
-
-### C. DESAIN PEMBELAJARAN
-| Komponen | Uraian |
-| :--- | :--- |
-| Tujuan Pembelajaran | |
-| Praktik Pedagogis | |
-| Kemitraan Pembelajaran | |
-| Lingkungan Pembelajaran | |
-| Pemanfaatan Teknologi / Media Digital | |
-
----
-
-### D. PENGALAMAN BELAJAR
-
-#### 1. Kegiatan Pendahuluan
-| Waktu (Menit) | Prinsip Pembelajaran | Langkah Kegiatan |
-| :--- | :--- | :--- |
-
-#### 2. Kegiatan Inti
-| Waktu (Menit) | Aktivitas Guru & Peserta Didik | Dimensi Profil Lulusan |
-| :--- | :--- | :--- |
-
-#### 3. Kegiatan Penutup
-| Waktu (Menit) | Prinsip Pembelajaran | Refleksi & Tindak Lanjut |
-| :--- | :--- | :--- |
-
----
-
-### E. ASESMEN PEMBELAJARAN
-(Wajib dalam bentuk tabel terpisah, jangan digabung dengan teks lain)
-
-| Jenis Asesmen | Tujuan | Teknik | Instrumen | Kriteria |
-| :--- | :--- | :--- | :--- | :--- |
-| Asesmen Awal (Diagnostik) | | | | |
-| Asesmen Proses (Formatif) | | | | |
-| Asesmen Akhir (Sumatif) | | | | |
-
----
-
-### F. PENGESAHAN
-
-| Mengetahui | |
-| :--- | :--- |
-| Kepala Sekolah | |
-| Nama Kota / Kabupaten | |
-| Tanda Tangan | |
-| Nama Kepala Sekolah | |
-
-<br>
-
-| Guru Mata Pelajaran | |
-| :--- | :--- |
-| Tanda Tangan | |
-| Nama Guru | |
-
-==================================================
-
-ISI SEMUA TABEL SECARA LENGKAP, REALISTIS, DAN SIAP DIGUNAKAN DALAM PEMBELAJARAN NYATA.
-PASTIKAN SETIAP TABEL MEMILIKI BARIS KOSONG SEBELUM DAN SESUDAHNYA AGAR TERRENDER DENGAN BENAR.
+Sajikan dalam tabel siap pakai.
 PROMPT;
 
 

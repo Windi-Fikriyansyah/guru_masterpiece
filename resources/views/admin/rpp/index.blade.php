@@ -21,7 +21,7 @@
                         <!-- API KEY -->
                         <div class="space-y-2 md:col-span-2">
                             <label class="text-sm font-bold text-slate-700 ml-1">
-                                Gemini API Key
+                                Master AI API KEY
                             </label>
 
                             <div class="relative">
@@ -33,10 +33,7 @@
                                 </button>
                             </div>
 
-                            <p class="text-xs text-slate-400 ml-1">
-                                API Key disimpan di browser Anda (localStorage), tidak dikirim ke server kecuali saat
-                                generate.
-                            </p>
+                            
                         </div>
 
                         <div class="space-y-2">
@@ -49,24 +46,8 @@
                             <input type="text" name="nama_guru" placeholder="Contoh: Budi Santoso, S.Pd"
                                 class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Semester</label>
-                            <select name="semester" class="search-select w-full" required>
-                                <option value="">Pilih Semester</option>
-                                <option value="Ganjil">Ganjil</option>
-                                <option value="Genap">Genap</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Kota / Kabupaten</label>
-                            <input type="text" name="kota" placeholder="Contoh: Kabupaten Kubu Raya"
-                                class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Nama Kepala Sekolah</label>
-                            <input type="text" name="kepala_sekolah" placeholder="Contoh: Drs. Ahmad Yani"
-                                class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
-                        </div>
+                        
+                        
 
                         <!-- Kurikulum -->
                         <div class="space-y-2">
@@ -99,9 +80,9 @@
 
                         <!-- Kelas/Kelompok -->
                         <div class="space-y-2">
-                            <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Kelas/Fase</label>
+                            <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Fase/Kelas/Semester</label>
                             <input type="text" id="kelas" name="kelas"
-                                placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E"
+                                placeholder="Contoh: Fase C/ V (Lima)/ Genap"
                                 class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400"
                                 required>
                         </div>
@@ -184,7 +165,7 @@
                             <label for="instruksi" class="text-sm font-bold text-slate-700 ml-1">Instruksi/Keinginan
                                 Khusus</label>
                             <textarea id="instruksi" name="instruksi" rows="3"
-                                placeholder="Sebutkan keinginan khusus lainnya (misal: fokus pada aktivitas outdoor)"
+                                placeholder="Sebutkan intruksi / keinginan khusus lainnya (misal: buat isi rencana pembelajaran secara lengkap atau fokus pada aktivas outdoor)"
                                 class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400 resize-none"></textarea>
                         </div>
                     </div>
@@ -193,7 +174,7 @@
                         <button type="submit" id="generateBtn"
                             class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3">
                             <i data-lucide="sparkles" class="w-6 h-6"></i>
-                            <span>Generate RPP Sekarang</span>
+                            <span>Hasilkan Sekarang</span>
                         </button>
                     </div>
                 </form>

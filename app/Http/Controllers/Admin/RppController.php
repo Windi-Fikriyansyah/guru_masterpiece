@@ -31,8 +31,8 @@ class RppController extends Controller
 
         try {
             $prompt = <<<PROMPT
-ASISTEN: Kamu adalah pakar kurikulum pendidikan Indonesia.
-TUGAS: Buatkan Rencana Pembelajaran berdasarkan Kurikulum yang dipilih.
+ASISTEN: Kamu adalah pakar kurikulum pendidikan Indonesia (Kurikulum Merdeka).
+TUGAS: Buatkan Rencana Pembelajaran / Modul Ajar berdasarkan data berikut:
 
 DATA INPUT:
 - Sekolah: {$request->nama_sekolah}
@@ -49,22 +49,18 @@ DATA INPUT:
 - Tujuan: {$request->tujuan}
 - Instruksi Tambahan: {$request->instruksi}
 
-ATURAN KERAS (WAJIB DIPATUHI):
-1. JANGAN memberikan kata pembuka/preambule (Contoh: "Tentu...", "Berikut adalah...", "Baik saya akan...").
-2. JANGAN memberikan komentar atau koreksi terhadap data input. Ikuti saja data yang diberikan.
-3. LANGSUNG mulai output dengan judul: **MODUL AJAR [NAMA MAPEL]** (atau RPP jika Kurikulum 2013).
-4. SEMUA komponen (Identifikasi/Identitas, Desain Pembelajaran, Pengalaman Belajar, Asesmen) WAJIB disajikan dalam format TABEL Markdown yang bersih dan siap pakai.
-5. Gunakan format tabel standar: | Kolom 1 | Kolom 2 | dengan pemisah | --- | --- |.
-6. Tabel Identifikasi/Identitas WAJIB memiliki susunan baris: Nama Sekolah, Nama Guru, Mata Pelajaran, Fase/Kelas/Semester (WAJIB DIGABUNG), Alokasi Waktu. JANGAN memisahkan Semester di baris tersendiri.
+STRUKTUR OUTPUT (WAJIB FORMAT TABEL MARKDOWN):
+1. **Identitas Modul**: (Nama Sekolah, Guru, Mapel, Fase/Kelas/Semester, Alokasi Waktu).
+2. **Komponen DPL1–DPL8**: (elemen terkait).
+3. **Desain Pembelajaran**: (Media, Sumber Belajar, Target Peserta Didik).
+4. **Pengalaman Belajar**: Tabel berisi kolom Tahap (Pendahuluan, Inti, Penutup), Kegiatan, dan Alokasi Waktu.
+5. **Asesmen**: Tabel berisi jenis Asesmen Awal, Proses, dan Akhir dengan prinsip pembelajaran mendalam.
+6. **Pengesahan**: Di akhir dokumen, sertakan tempat tanda tangan Kepala Sekolah dan Guru Mata Pelajaran.
 
-STRUKTUR OUTPUT:
-1. Tabel Identifikasi (Gunakan baris "Fase/Kelas" yang digabung)
-2. Tabel Identifikasi DPL1-DPL8 (jika Kurikulum Merdeka)
-3. Tabel Desain Pembelajaran
-4. Tabel Pengalaman Belajar (Pendahuluan, Inti, Penutup + Waktu)
-5. Tabel Asesmen (Awal, Proses, Akhir) dengan prinsip pembelajaran mendalam.
-
-Sajikan dalam tabel siap pakai.
+ATURAN:
+- JANGAN berikan kata pembuka seperti "Baik", "Tentu", atau "Berikut adalah...".
+- LANGSUNG ke judul: **MODUL AJAR KURIKULUM MERDEKA**.
+- Gunakan bahasa Indonesia yang formal dan edukatif.
 PROMPT;
 
 

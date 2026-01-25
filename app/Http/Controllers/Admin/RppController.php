@@ -18,8 +18,11 @@ class RppController extends Controller
     public function generate(Request $request)
     {
         $request->validate([
+            'nama_sekolah' => 'required',
+            'nama_guru' => 'required',
             'kurikulum' => 'required',
             'jenjang' => 'required',
+            'semester' => 'required',
             'kelas' => 'required',
             'mapel' => 'required',
             'topik' => 'required',
@@ -27,40 +30,48 @@ class RppController extends Controller
             'tujuan' => 'required',
             'model' => 'required',
             'pendekatan' => 'required',
+            'instruksi' => 'nullable',
         ]);
 
         try {
             $prompt = <<<PROMPT
-ASISTEN: Kamu adalah pakar kurikulum pendidikan Indonesia (Kurikulum Merdeka).
-TUGAS: Buatkan Rencana Pembelajaran / Modul Ajar berdasarkan data berikut:
-
-DATA INPUT:
-- Sekolah: {$request->nama_sekolah}
-- Guru: {$request->nama_guru}
-- Kurikulum: {$request->kurikulum}
+Buatkan Perencanaan Pembelajaran (Modul Ajar) dengan format resmi Kurikulum Merdeka Belajar untuk:
+- Nama Sekolah: {$request->nama_sekolah}
+- Nama Guru: {$request->nama_guru}
 - Jenjang: {$request->jenjang}
-- Fase/Kelas: {$request->kelas}
-- Semester: {$request->semester}
-- Mapel: {$request->mapel}
+- Fase/Kelas/Semester: {$request->kelas} / {$request->semester}
+- Mata Pelajaran: {$request->mapel}
 - Topik: {$request->topik}
 - Alokasi Waktu: {$request->waktu}
-- Model: {$request->model}
+- Model Pembelajaran: {$request->model}
 - Pendekatan: {$request->pendekatan}
-- Tujuan: {$request->tujuan}
-- Instruksi Tambahan: {$request->instruksi}
+- Tujuan Pembelajaran: {$request->tujuan}
+- Instruksi Khusus: {$request->instruksi}
 
-STRUKTUR OUTPUT (WAJIB FORMAT TABEL MARKDOWN):
-1. **Identitas Modul**: (Nama Sekolah, Guru, Mapel, Fase/Kelas/Semester, Alokasi Waktu).
-2. **Komponen DPL1–DPL8**: (elemen terkait).
-3. **Desain Pembelajaran**: (Media, Sumber Belajar, Target Peserta Didik).
-4. **Pengalaman Belajar**: Tabel berisi kolom Tahap (Pendahuluan, Inti, Penutup), Kegiatan, dan Alokasi Waktu.
-5. **Asesmen**: Tabel berisi jenis Asesmen Awal, Proses, dan Akhir dengan prinsip pembelajaran mendalam.
-6. **Pengesahan**: Di akhir dokumen, sertakan tempat tanda tangan Kepala Sekolah dan Guru Mata Pelajaran.
+Gunakan struktur berikut:
+1. **Identifikasi**: (Kesiapan materi, karakteristik murid, dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi).
+2. **Desain Pembelajaran**: (Tujuan pembelajaran, praktik pedagogis, kemitraan pembelajaran, lingkungan pembelajaran, pemanfaatan digital).
+3. **Pengalaman Belajar**: Langkah-langkah Pembelajaran terdiri dari:
+   - Kegiatan Pendahuluan (Sebutkan jumlah menit dan prinsip yang digunakan)
+   - Kegiatan Inti (Sebutkan jumlah menit dan prinsip yang digunakan)
+   - Kegiatan Penutup (Sebutkan jumlah menit dan prinsip yang digunakan)
+4. **Asesmen Pembelajaran**: Buatkan asesmen pada awal (as learning), proses (for learning), dan akhir pembelajaran (of learning).
 
-ATURAN:
-- JANGAN berikan kata pembuka seperti "Baik", "Tentu", atau "Berikut adalah...".
-- LANGSUNG ke judul: **MODUL AJAR KURIKULUM MERDEKA**.
-- Gunakan bahasa Indonesia yang formal dan edukatif.
+Ketentuan Tambahan:
+- Terapkan pembelajaran mendalam dengan prinsip berkesadaran, bermakna, dan menggembirakan.
+- Selaraskan dengan Dimensi Profil Lulusan serta sertakan penjelasan langkah-langkah pembelajarannya.
+- Sajikan dalam bentuk TABEL yang rapi dan siap digunakan dalam format Markdown.
+- JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi Modul Ajar.
+- Akhiri dokumen dengan format tanda tangan:
+  Mengetahui,
+  [Nama Kota/Kabupaten], [Tanggal]
+  
+  Kepala Sekolah                           Guru Mata Pelajaran
+  
+  
+  
+  (..........................)             (..........................)
+  NIP.                                     NIP.
 PROMPT;
 
 

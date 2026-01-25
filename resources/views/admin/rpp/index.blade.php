@@ -25,7 +25,7 @@
                             </label>
 
                             <div class="relative">
-                                <input type="password" id="api_key" placeholder="Masukkan Gemini API Key Anda"
+                                <input type="password" id="api_key" placeholder="Masukkan Master AI API Key Anda"
                                     class="w-full bg-slate-50 rounded-2xl px-5 py-4 pr-14 font-mono text-sm">
                                 <button type="button" id="toggleApiKey"
                                     class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
@@ -33,7 +33,7 @@
                                 </button>
                             </div>
 
-                            
+
                         </div>
 
                         <div class="space-y-2">
@@ -46,8 +46,8 @@
                             <input type="text" name="nama_guru" placeholder="Contoh: Budi Santoso, S.Pd"
                                 class="w-full bg-slate-50 rounded-2xl px-5 py-4" required>
                         </div>
-                        
-                        
+
+
 
                         <!-- Kurikulum -->
                         <div class="space-y-2">
@@ -78,11 +78,20 @@
                             </select>
                         </div>
 
+
+                        <div class="space-y-2">
+                            <label for="semester" class="text-sm font-bold text-slate-700 ml-1">Semester</label>
+                            <select id="semester" name="semester" class="search-select w-full" required>
+                                <option value="">Pilih Semester</option>
+                                <option value="ganjil">Ganjil</option>
+                                <option value="genap">Genap</option>
+                            </select>
+                        </div>
+
                         <!-- Kelas/Kelompok -->
                         <div class="space-y-2">
-                            <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Fase/Kelas/Semester</label>
-                            <input type="text" id="kelas" name="kelas"
-                                placeholder="Contoh: Fase C/ V (Lima)/ Genap"
+                            <label for="kelas" class="text-sm font-bold text-slate-700 ml-1">Fase/Kelas</label>
+                            <input type="text" id="kelas" name="kelas" placeholder="Contoh: Fase C/ V (Lima)"
                                 class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400"
                                 required>
                         </div>

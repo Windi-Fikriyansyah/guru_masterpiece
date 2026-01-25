@@ -39,7 +39,8 @@ DATA INPUT:
 - Guru: {$request->nama_guru}
 - Kurikulum: {$request->kurikulum}
 - Jenjang: {$request->jenjang}
-- Fase/Kelas/Semester: {$request->kelas}
+- Fase/Kelas: {$request->kelas}
+- Semester: {$request->semester}
 - Mapel: {$request->mapel}
 - Topik: {$request->topik}
 - Alokasi Waktu: {$request->waktu}
@@ -57,7 +58,7 @@ ATURAN KERAS (WAJIB DIPATUHI):
 6. Tabel Identifikasi/Identitas WAJIB memiliki susunan baris: Nama Sekolah, Nama Guru, Mata Pelajaran, Fase/Kelas/Semester (WAJIB DIGABUNG), Alokasi Waktu. JANGAN memisahkan Semester di baris tersendiri.
 
 STRUKTUR OUTPUT:
-1. Tabel Identifikasi (Gunakan baris "Fase/Kelas/Semester" yang digabung)
+1. Tabel Identifikasi (Gunakan baris "Fase/Kelas" yang digabung)
 2. Tabel Identifikasi DPL1-DPL8 (jika Kurikulum Merdeka)
 3. Tabel Desain Pembelajaran
 4. Tabel Pengalaman Belajar (Pendahuluan, Inti, Penutup + Waktu)

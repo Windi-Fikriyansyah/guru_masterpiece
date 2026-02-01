@@ -4,11 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use App\Models\Subject;
+use App\Services\AIService;
 
 class SoalController extends Controller
 {
+    protected AIService $aiService;
+
+    public function __construct(AIService $aiService)
+    {
+        $this->aiService = $aiService;
+    }
+
     public function index()
     {
         $subjects = Subject::orderBy('name')->get();
@@ -70,44 +77,17 @@ PENTING FORMAT OUTPUT:
         - B. Pilihan 2
         - C. Pilihan 3
         - D. Pilihan 4
-5. Kunci jawaban diletakkan TERPISAH (halaman baru atau paling bawah) dengan judul \"KUNCI JAWABAN\".
-6. Sesuaikan kompleksitas soal dengan Taksonomi Bloom ({$request->taksonomi}) dan Tingkat Kesulitan ({$request->kesulitan}).
+5. Kunci jawaban diletakkan TERPISAH (halaman baru atau paling bawah) with judul \"KUNCI JAWABAN\".
+6. Sesuaikan kompleksitas soal dengan Taksonomi Bloom ({$request->taksonomi}) and Tingkat Kesulitan ({$request->kesulitan}).
 7. Gunakan format Markdown yang rapi, berikan jarak antar nomor soal. JANGAN ada kalimat pembuka basa-basi.";
 
-            $apiKey = config('services.gemini.key');
+            $result = $this->aiService->generateContent($prompt);
 
-            if (empty($apiKey)) {
-                return response()->json(['error' => 'Gemini API Key belum dikonfigurasi. Harap tambahkan GEMINI_API_KEY di file .env'], 500);
+            if ($result) {
+                return response()->json(['result' => $result]);
             }
 
-            // Retry logic
-            $models = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-pro'];
-            $lastError = null;
-
-            foreach ($models as $model) {
-                for ($attempt = 1; $attempt <= 2; $attempt++) {
-                    $response = Http::timeout(120)->withHeaders([
-                        'Content-Type' => 'application/json',
-                    ])->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", [
-                        'contents' => [['parts' => [['text' => $prompt]]]]
-                    ]);
-
-                    if ($response->successful()) {
-                        $result = $response->json('candidates.0.content.parts.0.text');
-                        return response()->json(['result' => $result]);
-                    }
-
-                    $lastError = $response->json('error.message', 'Unknown error');
-                    if (str_contains($lastError, 'overloaded')) {
-                        sleep(2);
-                        continue;
-                    }
-                    break;
-                }
-            }
-
-            \Log::error('Gemini API Error Soal', ['error' => $lastError]);
-            return response()->json(['error' => 'Server AI sedang sibuk. Silakan coba lagi.'], 503);
+            return response()->json(['error' => 'Gagal menghasilkan konten. Silakan coba lagi.'], 500);
 
         } catch (\Exception $e) {
             \Log::error('Soal Generation Exception', ['message' => $e->getMessage()]);

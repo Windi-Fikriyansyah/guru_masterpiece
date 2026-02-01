@@ -4,12 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-
 use App\Models\Subject;
+use App\Services\AIService;
 
 class LkpdController extends Controller
 {
+    protected AIService $aiService;
+
+    public function __construct(AIService $aiService)
+    {
+        $this->aiService = $aiService;
+    }
+
     public function index()
     {
         $subjects = Subject::orderBy('name')->get();
@@ -23,8 +29,7 @@ class LkpdController extends Controller
             'jenjang' => 'required',
             'kelas' => 'required',
             'mapel' => 'required',
-            'materi' => 'required', 
-            // 'instruksi' is optional? Let's make it optional or required based on user request "Instruksi/Tugas Siswa" implies it's a field.
+            'materi' => 'required',
             'instruksi_siswa' => 'nullable',
             'instruksi_khusus' => 'nullable',
         ]);
@@ -68,40 +73,13 @@ PENTING:
 
 JANGAN berikan kalimat pembuka seperti 'Berikut adalah LKPD...'. Langsung ke konten. Gunakan kombinasi HTML (untuk tabel identitas) dan Markdown (untuk sisanya).";
 
-            $apiKey = config('services.gemini.key');
+            $result = $this->aiService->generateContent($prompt);
 
-            if (empty($apiKey)) {
-                return response()->json(['error' => 'Gemini API Key belum dikonfigurasi. Harap tambahkan GEMINI_API_KEY di file .env'], 500);
+            if ($result) {
+                return response()->json(['result' => $result]);
             }
 
-            // Retry logic similar to RppController
-            $models = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-1.5-pro'];
-            $lastError = null;
-
-            foreach ($models as $model) {
-                for ($attempt = 1; $attempt <= 2; $attempt++) {
-                    $response = Http::timeout(120)->withHeaders([
-                        'Content-Type' => 'application/json',
-                    ])->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", [
-                        'contents' => [['parts' => [['text' => $prompt]]]]
-                    ]);
-
-                    if ($response->successful()) {
-                        $result = $response->json('candidates.0.content.parts.0.text');
-                        return response()->json(['result' => $result]);
-                    }
-
-                    $lastError = $response->json('error.message', 'Unknown error');
-                    if (str_contains($lastError, 'overloaded')) {
-                        sleep(2);
-                        continue;
-                    }
-                    break;
-                }
-            }
-
-            \Log::error('Gemini API Error LKPD', ['error' => $lastError]);
-            return response()->json(['error' => 'Server AI sedang sibuk. Silakan coba lagi.'], 503);
+            return response()->json(['error' => 'Gagal menghasilkan konten. Silakan coba lagi.'], 500);
 
         } catch (\Exception $e) {
             \Log::error('LKPD Generation Exception', ['message' => $e->getMessage()]);

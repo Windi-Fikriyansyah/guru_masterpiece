@@ -18,23 +18,6 @@
                 <form id="rppForm" class="space-y-8">
                     @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- API KEY -->
-                        <div class="space-y-2 md:col-span-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">
-                                Master AI API KEY
-                            </label>
-
-                            <div class="relative">
-                                <input type="password" id="api_key" placeholder="Masukkan Master AI API Key Anda"
-                                    class="w-full bg-slate-50 rounded-2xl px-5 py-4 pr-14 font-mono text-sm">
-                                <button type="button" id="toggleApiKey"
-                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
-                                    👁
-                                </button>
-                            </div>
-
-
-                        </div>
 
                         <div class="space-y-2">
                             <label class="text-sm font-bold text-slate-700 ml-1">Nama Sekolah</label>
@@ -519,23 +502,6 @@
     <script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script>
     <script>
         $(document).ready(function() {
-            // Load API key from localStorage
-            const apiKeyInput = $('#api_key');
-            const savedKey = localStorage.getItem('gemini_api_key');
-            if (savedKey) {
-                apiKeyInput.val(savedKey);
-            }
-
-            // Toggle show/hide API key
-            $('#toggleApiKey').on('click', function() {
-                const type = apiKeyInput.attr('type') === 'password' ? 'text' : 'password';
-                apiKeyInput.attr('type', type);
-            });
-
-            // Save API key on change
-            apiKeyInput.on('input', function() {
-                localStorage.setItem('gemini_api_key', $(this).val());
-            });
 
             $('.search-select').select2({
                 width: '100%'
@@ -589,20 +555,7 @@
                 // Scroll to loading
 
 
-                const apiKey = $('#api_key').val().trim();
-
-                if (!apiKey) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'API Key Belum Diisi',
-                        text: 'Silakan masukkan Gemini API Key terlebih dahulu.',
-                        confirmButtonColor: '#6366f1'
-                    });
-                    return;
-                }
-
                 let formData = $(this).serialize();
-                formData += '&api_key=' + encodeURIComponent(apiKey);
 
                 if ($('#mapel').val() === '__other__') {
                     const manualVal = $('#mapel_manual').val();

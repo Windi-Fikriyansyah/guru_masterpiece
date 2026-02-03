@@ -113,6 +113,14 @@
                                 required>
                         </div>
 
+                        <!-- Bulan dan Tahun -->
+                        <div class="space-y-2">
+                            <label for="bulan_tahun" class="text-sm font-bold text-slate-700 ml-1">Bulan dan Tahun</label>
+                            <input type="text" id="bulan_tahun" name="bulan_tahun" placeholder="Contoh: September, 2026"
+                                class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400"
+                                required>
+                        </div>
+
                         <!-- Model Pembelajaran -->
                         <div class="space-y-2">
                             <label for="model" class="text-sm font-bold text-slate-700 ml-1">Model Pembelajaran</label>
@@ -407,6 +415,40 @@
 
         #rppOutput tbody tr:last-child td {
             border-bottom: none;
+        }
+
+        /* Signature Table - No background, no borders */
+        #rppOutput table:last-of-type {
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+
+        #rppOutput table:last-of-type thead {
+            background: none;
+            color: #1e293b;
+        }
+
+        #rppOutput table:last-of-type th {
+            text-transform: none;
+            font-size: 1rem;
+            letter-spacing: normal;
+            border: none;
+            padding: 0.5rem 1rem;
+        }
+
+        #rppOutput table:last-of-type td {
+            border: none;
+            background: transparent !important;
+            padding: 0.25rem 1rem;
+        }
+
+        #rppOutput table:last-of-type tbody tr:nth-child(even) {
+            background-color: transparent;
+        }
+
+        #rppOutput table:last-of-type tbody tr:hover {
+            background-color: transparent;
         }
 
         /* Horizontal Rules */

@@ -34,6 +34,7 @@ class RppController extends Controller
             'mapel' => 'required',
             'topik' => 'required',
             'waktu' => 'required',
+            'bulan_tahun' => 'required',
             'tujuan' => 'required',
             'model' => 'required',
             'pendekatan' => 'required',
@@ -96,23 +97,16 @@ Instruksi/ketentuan Tambahan:
 - Selaraskan dengan Dimensi Profil Lulusan serta sertakan penjelasan langkah-langkah pembelajarannya.
 - Sajikan semua dalam bentuk TABEL yang rapi dan siap digunakan dalam format Markdown.
 - JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi dan penjelasan Modul Ajar.
-- Akhiri dokumen dengan format tanda tangan:
+- Akhiri dokumen dengan format tanda tangan dua kolom seperti berikut (dalam bentuk tabel Markdown tanpa border):
 
-Mengetahui,
-[Nama Kota/Kabupaten], [Tanggal, Tahun]
-  
- Kepala Sekolah                  
-
-
-(..........................)     
-NIP. 
-
-Guru Mata Pelajaran
-  
-  
-  
-(..........................) 
-NIP. 
+| Mengetahui, | {$request->nama_sekolah}, {$request->bulan_tahun} |
+|---|---|
+| Kepala {$request->nama_sekolah} | Guru Mata Pelajaran |
+| | |
+| | |
+| | |
+| (..........................) | (..........................) |
+| NIP. | NIP. |
 PROMPT;
 
             $result = $this->aiService->generateContent($prompt);

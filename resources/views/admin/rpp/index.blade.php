@@ -115,8 +115,8 @@
 
                         <!-- Bulan dan Tahun -->
                         <div class="space-y-2">
-                            <label for="bulan_tahun" class="text-sm font-bold text-slate-700 ml-1">Bulan dan Tahun</label>
-                            <input type="text" id="bulan_tahun" name="bulan_tahun" placeholder="Contoh: September, 2026"
+                            <label for="bulan_tahun" class="text-sm font-bold text-slate-700 ml-1">Tempat, Tanggal Bulan Tahun</label>
+                            <input type="text" id="bulan_tahun" name="bulan_tahun" placeholder="Contoh: Jakarta, 27 Januari 2026"
                                 class="w-full bg-slate-50 border-none rounded-2xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-medium text-slate-600 placeholder:text-slate-400"
                                 required>
                         </div>

@@ -76,7 +76,11 @@ B. IDENTIFIKASI:
 3. Menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel ceklis (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
 C. DESAIN PEMBELAJARAN:
 1. Tujuan pembelajaran
-2. kerangka pembelajaran: praktik pedagogis, kemitraan pembelajaran, lingkungan pembelajaran, pemanfaatan digital).
+2. kerangka pembelajaran: 
+       a. praktik pedagogis
+       b. kemitraan pembelajaran
+       c. lingkungan pembelajaran 
+       d. pemanfaatan digital
 D. PENGALAMAN BELAJAR: 
 Langkah-langkah Pembelajaran dengan prinsip berkesadaran, bermakna, menggembirakan dan Mendeskripsikan pengalaman belajar memahami, mengaplikasi, dan merefleksi. Terdiri dari:
 1. Kegiatan Pendahuluan (Sebutkan jumlah menit dan prinsip yang digunakan)

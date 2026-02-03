@@ -78,14 +78,14 @@ B. IDENTIFIKASI:
 
 | No | Dimensi Profil Lulusan | Kode | Centang |
 |----|------------------------|------|---------|
-| 1 | Keimanan dan Ketakwaan terhadap Tuhan YME | DPL1 |  |
-| 2 | Kewargaan | DPL2 |  |
-| 3 | Penalaran Kritis | DPL3 |  |
-| 4 | Kreativitas | DPL4 |  |
-| 5 | Kolaborasi | DPL5 |  |
-| 6 | Kemandirian | DPL6 |  |
-| 7 | Kesehatan | DPL7 |  |
-| 8 | Komunikasi | DPL8 |  |
+| 1 | Keimanan dan Ketakwaan terhadap Tuhan YME | DPL1 | ☐ |
+| 2 | Kewargaan | DPL2 | ☐ |
+| 3 | Penalaran Kritis | DPL3 | ☐ |
+| 4 | Kreativitas | DPL4 | ☐ |
+| 5 | Kolaborasi | DPL5 | ☐ |
+| 6 | Kemandirian | DPL6 | ☐ |
+| 7 | Kesehatan | DPL7 | ☐ |
+| 8 | Komunikasi | DPL8 | ☐ |
 
 (Centang dimensi yang sesuai dengan pembelajaran ini)
 C. DESAIN PEMBELAJARAN:

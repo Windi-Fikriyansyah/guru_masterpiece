@@ -42,7 +42,7 @@ class RppController extends Controller
 
         try {
             $prompt = <<<PROMPT
-Buatkan Perencanaan Pembelajaran (Modul Ajar) dengan format resmi Kurikulum Merdeka Belajar untuk:
+Buatkan Perencanaan Pembelajaran (Modul Ajar Pebelajaran Mendalam) dengan format resmi Kurikulum Merdeka Belajar untuk:
 - Nama Sekolah: {$request->nama_sekolah}
 - Nama Guru: {$request->nama_guru}
 - Jenjang: {$request->jenjang}
@@ -55,20 +55,21 @@ Buatkan Perencanaan Pembelajaran (Modul Ajar) dengan format resmi Kurikulum Merd
 - Tujuan Pembelajaran: {$request->tujuan}
 - Instruksi Khusus: {$request->instruksi}
 
-Gunakan struktur berikut:
-1. **Identifikasi**: (Kesiapan materi, karakteristik murid, dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi).
-2. **Desain Pembelajaran**: (Tujuan pembelajaran, praktik pedagogis, kemitraan pembelajaran, lingkungan pembelajaran, pemanfaatan digital).
-3. **Pengalaman Belajar**: Langkah-langkah Pembelajaran terdiri dari:
+Gunakan struktur Modul Ajar Pembelajaran Mendalam - Format Resmi Kurikulum Merdeka berikut:
+
+1.	Identifikasi: (Kesiapan materi, karakteristik murid, dan menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel ceklis (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
+2.	Desain Pembelajaran: (Tujuan pembelajaran dan kerangka pembelajaran: praktik pedagogis, kemitraan pembelajaran, lingkungan pembelajaran, pemanfaatan digital).
+3.	Pengalaman Belajar: Langkah-langkah Pembelajaran dengan prinsip berkesadaran, bermakna, menggembirakan dan Mendeskripsikan pengalaman belajar memahami, mengaplikasi, dan merefleksi. Terdiri dari:
    - Kegiatan Pendahuluan (Sebutkan jumlah menit dan prinsip yang digunakan)
    - Kegiatan Inti (Sebutkan jumlah menit dan prinsip yang digunakan)
    - Kegiatan Penutup (Sebutkan jumlah menit dan prinsip yang digunakan)
-4. **Asesmen Pembelajaran**: Buatkan asesmen pada awal (as learning), proses (for learning), dan akhir pembelajaran (of learning).
+ 4. Asesmen Pembelajaran: Buatkan asesmen pada awal (as learning), proses (for learning), dan akhir pembelajaran (of learning).
 
-Ketentuan Tambahan:
+Instruksi/ketentuan Tambahan:
 - Terapkan pembelajaran mendalam dengan prinsip berkesadaran, bermakna, dan menggembirakan.
 - Selaraskan dengan Dimensi Profil Lulusan serta sertakan penjelasan langkah-langkah pembelajarannya.
-- Sajikan dalam bentuk TABEL yang rapi dan siap digunakan dalam format Markdown.
-- JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi Modul Ajar.
+- Sajikan semua dalam bentuk TABEL yang rapi dan siap digunakan dalam format Markdown.
+- JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi dan penjelasan Modul Ajar.
 - Akhiri dokumen dengan format tanda tangan:
   Mengetahui,
   [Nama Kota/Kabupaten], [Tanggal]
@@ -78,7 +79,7 @@ Ketentuan Tambahan:
   
   
   (..........................)             (..........................)
-  NIP.                                     NIP.
+  NIP.                                     NIP. 
 PROMPT;
 
             $result = $this->aiService->generateContent($prompt);

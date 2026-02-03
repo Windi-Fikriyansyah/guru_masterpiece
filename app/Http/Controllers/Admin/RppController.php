@@ -73,9 +73,9 @@ A. INFORMASI UMUM
 B. IDENTIFIKASI:
 1. Kesiapan materi (buatkan kesiapan materinya)
 2. karakteristik murid (buatkan kesiapan muridnya)
-3. Menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel ceklis (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
+3. Menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
 C. DESAIN PEMBELAJARAN:
-1. Tujuan pembelajaran
+1. Tujuan pembelajaran (sesuaikan tujuan yang sudah ditulis pada bagian A.Informasi umum)
 2. kerangka pembelajaran: 
        a. praktik pedagogis
        b. kemitraan pembelajaran

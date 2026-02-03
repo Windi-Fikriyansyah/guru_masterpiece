@@ -590,7 +590,7 @@
 
                             Swal.fire({
                                 icon: 'success',
-                                title: 'RPP Berhasil Dibuat!',
+                                title: 'Modul Ajar Berhasil Dibuat!',
                                 text: 'Hasil telah tampil di bawah.',
                                 confirmButtonColor: '#6366f1'
                             });

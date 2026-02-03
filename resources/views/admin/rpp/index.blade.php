@@ -9,7 +9,7 @@
         <!-- Header Section -->
         <div class="mb-10 text-center">
             <h2 class="text-3xl font-extrabold text-slate-800 mb-2">BUAT RPM/RPP/MODUL AJAR OTOMATIS</h2>
-            <p class="text-slate-500">Buat rencana pembelajaran yang komprehensif dalam hitungan detik</p>
+            <p class="text-slate-500">Buat rencana pembelajaran yang komprehensif dalam hitungan detik atau menit</p>
         </div>
 
         <!-- Generator Form Card -->

@@ -74,7 +74,20 @@ A. INFORMASI UMUM
 B. IDENTIFIKASI:
 1. Kesiapan materi (buatkan kesiapan materinya)
 2. karakteristik murid (buatkan kesiapan muridnya)
-3. Menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
+3. Menentukan dimensi profil lulusan. Sajikan dalam bentuk TABEL Markdown dengan format berikut:
+
+| No | Dimensi Profil Lulusan | Kode | Centang |
+|----|------------------------|------|---------|
+| 1 | Keimanan dan Ketakwaan terhadap Tuhan YME | DPL1 | ☐ |
+| 2 | Kewargaan | DPL2 | ☐ |
+| 3 | Penalaran Kritis | DPL3 | ☐ |
+| 4 | Kreativitas | DPL4 | ☐ |
+| 5 | Kolaborasi | DPL5 | ☐ |
+| 6 | Kemandirian | DPL6 | ☐ |
+| 7 | Kesehatan | DPL7 | ☐ |
+| 8 | Komunikasi | DPL8 | ☐ |
+
+(Centang dimensi yang sesuai dengan pembelajaran ini)
 C. DESAIN PEMBELAJARAN:
 1. Tujuan pembelajaran (sesuaikan tujuan yang sudah ditulis pada bagian A.Informasi umum)
 2. kerangka pembelajaran: 
@@ -99,7 +112,7 @@ Instruksi/ketentuan Tambahan:
 - JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi dan penjelasan Modul Ajar.
 - Akhiri dokumen dengan format tanda tangan dua kolom seperti berikut (dalam bentuk tabel Markdown tanpa border):
 
-| Mengetahui, | {$request->nama_sekolah}, {$request->bulan_tahun} |
+| Mengetahui, | {$request->bulan_tahun} |
 |---|---|
 | Kepala {$request->nama_sekolah} | Guru Mata Pelajaran |
 | | |

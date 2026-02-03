@@ -207,7 +207,7 @@
                     <div class="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin">
                     </div>
                 </div>
-                <h4 class="text-xl font-bold text-slate-600 mb-2">Sedang Menghasilkan RPP...</h4>
+                <h4 class="text-xl font-bold text-slate-600 mb-2">Sedang Menghasilkan Modul Ajar...</h4>
                 <p class="text-slate-400 max-w-sm">Mohon tunggu, AI sedang menyusun rencana pembelajaran Anda.</p>
             </div>
 

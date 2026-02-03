@@ -87,7 +87,7 @@ B. IDENTIFIKASI:
 | 7 | Kesehatan | DPL7 | ☐ |
 | 8 | Komunikasi | DPL8 | ☐ |
 
-(Centang dimensi yang sesuai dengan pembelajaran ini)
+(PENTING: Biarkan SEMUA kotak ☐ tetap kosong tanpa centang. JANGAN ubah atau centang kotak apapun. Guru akan mencentang sendiri secara manual.)
 C. DESAIN PEMBELAJARAN:
 1. Tujuan pembelajaran (sesuaikan tujuan yang sudah ditulis pada bagian A.Informasi umum)
 2. kerangka pembelajaran: 

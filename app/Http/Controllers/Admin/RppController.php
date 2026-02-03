@@ -55,9 +55,11 @@ Buatkan Perencanaan Pembelajaran (Modul Ajar Pebelajaran Mendalam) dengan format
 - Tujuan Pembelajaran: {$request->tujuan}
 - Instruksi Khusus: {$request->instruksi}
 
-Gunakan struktur Modul Ajar Pembelajaran Mendalam - Format Resmi Kurikulum Merdeka berikut:
+Gunakan struktur Modul Ajar Pembelajaran Mendalam - Format Resmi Kurikulum Merdeka (Susun Perencanaan Pembelajaran Mendalam sesuai Kurikulum Merdeka dengan bahasa formal, sistematis, dan siap digunakan sebagai dokumen resmi sekolah. Gunakan format dan urutan berikut secara konsisten)
 
 PERENCANAAN PEMBELAJARAN MENDALAM
+
+A. INFORMASI UMUM
 - Nama sekolah [isi]
 - Nama guru [isi]
 - Jenjang [isi]
@@ -67,24 +69,23 @@ PERENCANAAN PEMBELAJARAN MENDALAM
 - Alokasi waktu [isi]
 - Model pembelajaran [isi]
 - Pendekatan [isi]
-- Tujuan pembelajaran [isi], 
-- instruksi khusus [optional].
-
-1.	Identifikasi:
-- Kesiapan materi (buatkan kesiapan materinya)
-- karakteristik murid (buatkan kesiapan muridnya)
-- menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel ceklis (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
-2.	Desain Pembelajaran:
-- Tujuan pembelajaran
-- kerangka pembelajaran: praktik pedagogis, kemitraan pembelajaran, lingkungan pembelajaran, pemanfaatan digital).
-3.	Pengalaman Belajar: Langkah-langkah Pembelajaran dengan prinsip berkesadaran, bermakna, menggembirakan dan Mendeskripsikan pengalaman belajar memahami, mengaplikasi, dan merefleksi. Terdiri dari:
-   - Kegiatan Pendahuluan (Sebutkan jumlah menit dan prinsip yang digunakan)
-   - Kegiatan Inti (Sebutkan jumlah menit dan prinsip yang digunakan)
-   - Kegiatan Penutup (Sebutkan jumlah menit dan prinsip yang digunakan)
- 4. Asesmen Pembelajaran: Buatkan asesmen:
-- Asesmen pada awal pembelajaran (as learning)
-- Asesmen pada proses pembelajaran (for learning)
-- Asesmen pada akhir pembelajaran (of learning)
+- Tujuan pembelajaran [isi] (Tuliskan tujuan pembelajaran yang mencakup kompetensi dan konten sesuai capaian pembelajaran, menggunakan kata kerja operasional yang terukur)
+B. IDENTIFIKASI:
+1. Kesiapan materi (buatkan kesiapan materinya)
+2. karakteristik murid (buatkan kesiapan muridnya)
+3. Menentukan dimensi profil lulusan: DPL1 Keimanan dan Ketakwaan terhadap Tuhan YME, DPL2 Kewargaan, DPL3 Penalaran Kritis, DPL4 Kreativitas, DPL5 Kolaborasi, DPL6 Kemandirian, DPL7 Kesehatan, DPL8 Komunikasi), Sajikan Dimensi Profil Lulusan (DPL1–DPL8) dalam tabel ceklis (☐) yang lengkap, sehingga pendidik tinggal mencentang dimensi yang dipilih sesuai pembelajaran.
+C. DESAIN PEMBELAJARAN:
+1. Tujuan pembelajaran
+2. kerangka pembelajaran: praktik pedagogis, kemitraan pembelajaran, lingkungan pembelajaran, pemanfaatan digital).
+D. PENGALAMAN BELAJAR: 
+Langkah-langkah Pembelajaran dengan prinsip berkesadaran, bermakna, menggembirakan dan Mendeskripsikan pengalaman belajar memahami, mengaplikasi, dan merefleksi. Terdiri dari:
+1. Kegiatan Pendahuluan (Sebutkan jumlah menit dan prinsip yang digunakan)
+2. Kegiatan Inti (Sebutkan jumlah menit dan prinsip yang digunakan)
+3. Kegiatan Penutup (Sebutkan jumlah menit dan prinsip yang digunakan)
+E. ASESMEN PEMBELAJARAN: Buatkan asesmen:
+1. Asesmen pada awal pembelajaran (as learning)
+2. Asesmen pada proses pembelajaran (for learning)
+3. Asesmen pada akhir pembelajaran (of learning)
 
 Instruksi/ketentuan Tambahan:
 - Terapkan pembelajaran mendalam dengan prinsip berkesadaran, bermakna, dan menggembirakan.
@@ -93,8 +94,8 @@ Instruksi/ketentuan Tambahan:
 - JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi dan penjelasan Modul Ajar.
 - Akhiri dokumen dengan format tanda tangan:
 
-  Mengetahui,
-  [Nama Kota/Kabupaten], [Tanggal, Tahun]
+Mengetahui,
+[Nama Kota/Kabupaten], [Tanggal, Tahun]
   
  Kepala Sekolah                  
 

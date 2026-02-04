@@ -36,7 +36,6 @@ class LkpdController extends Controller
 
         try {
             $prompt = "Buatkan Lembar Kerja Peserta Didik (LKPD) yang lengkap, menarik, dan siap cetak dengan data berikut:
-
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
 Kelas/Kelompok: {$request->kelas}
@@ -47,7 +46,7 @@ Instruksi/Keinginan Khusus (Guru): {$request->instruksi_khusus}
 
 PENTING:
 1. Langsung mulai dengan JUDUL LKPD yang menarik dengan format Heading 1 (# Judul).
-2. Di bawah judul, buat tabel identitas menggunakan **HTML Table** agar rapi dengan border transparan. Gunakan kode berikut persis untuk bagian identitas:
+2. Di bawah judul, buat tabel identitas menggunakan HTML Table agar rapi dengan border transparan. Gunakan kode berikut persis untuk bagian identitas:
 <table style=\"width: 100%; border: none; margin-bottom: 20px;\">
     <tr>
         <td style=\"width: 15%; border: none; padding: 5px; font-weight: bold;\">Nama</td>
@@ -67,9 +66,11 @@ PENTING:
 </table>
 3. Berikan Tujuan Pembelajaran singkat.
 4. Buat Petunjuk Belajar yang jelas.
-5. Susun Kegiatan/Soal yang variatif (bisa Pilihan Ganda, Isian, Uraian, atau Menjodohkan) sesuai materi.
-6. Gunakan format Markdown yang rapi dengan heading, bold, dan tabel jika perlu.
-7. Jika diminta HOTS atau PBL, pastikan konten mencerminkan hal tersebut.
+5. Susun Kegiatan/Soal dan kunci jawaban yang variatif (bisa Pilihan Ganda, Isian, Uraian, atau Menjodohkan serta kunci jawaban dari setiap jenis soal) sesuai materi.
+6. Tambahkan gambar sesuai materi pada jenis soal maupun kunci jawaban
+7. Susun lembar evaluasi/refleksi murid/kelompok berupa soal sesuai materi dan pedoman penskoran
+8. Gunakan format Markdown yang rapi dengan heading, bold, dan tabel jika perlu.
+9. Jika diminta HOTS atau PBL, pastikan konten mencerminkan hal tersebut.
 
 JANGAN berikan kalimat pembuka seperti 'Berikut adalah LKPD...'. Langsung ke konten. Gunakan kombinasi HTML (untuk tabel identitas) dan Markdown (untuk sisanya).";
 

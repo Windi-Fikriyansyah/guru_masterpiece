@@ -177,8 +177,8 @@
     
     <!-- Header -->
     <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">LKPD Generator AI</h2>
-        <p class="text-slate-500">Buat Lembar Kerja Peserta Didik yang menarik dan terstruktur dalam hitungan detik.</p>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">LKPD/LKM Siap Pakai</h2>
+        <p class="text-slate-500">Buat Lembar Kerja Peserta Didik yang Menarik, Terstruktur, dan Siap Digunakan dalam Hitungan Detik atau Menit</p>
     </div>
 
     <!-- Input Form Card -->
@@ -188,7 +188,7 @@
                 <i data-lucide="file-edit" class="w-6 h-6"></i>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-slate-800">Input Data LKPD</h3>
+                <h3 class="text-xl font-bold text-slate-800">Input Data LKPD/LKM</h3>
                 <p class="text-sm text-slate-400">Lengkapi form di bawah ini untuk hasil terbaik</p>
             </div>
         </div>
@@ -228,13 +228,13 @@
 
                 <!-- Kelas/Kelompok -->
                 <div class="space-y-2">
-                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Faselompok</label>
-                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" required>
+                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas / Kelompok</label>
+                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B /Genap" required>
                 </div>
 
     <!-- Mata Pelajaran -->
                 <div class="space-y-2">
-                    <label for="mapel" class="block text-sm font-bold text-slate-700 ml-1">Mata Pelajaran</label>
+                    <label for="mapel" class="block text-sm font-bold text-slate-700 ml-1">Mata Pelajaran / Lingkup Perkembangan</label>
                     <select name="mapel" id="mapel" class="w-full select2-enable" required>
                         <option value="">Pilih Mata Pelajaran</option>
                         @foreach($subjects as $subject)
@@ -251,26 +251,26 @@
             <!-- Materi Spesifik -->
             <div class="space-y-2">
                 <label for="materi" class="block text-sm font-bold text-slate-700 ml-1">Materi Spesifik</label>
-                <input type="text" name="materi" id="materi" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Penjumlahan 1-10, Siklus Air" required>
+                <input type="text" name="materi" id="materi" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Isi materi spesifik pembelajaran yang akan dibahas. Contoh: Bagian-bagian Tubuh Tumbuhan" required>
             </div>
 
             <!-- Instruksi / Tugas Siswa -->
             <div class="space-y-2">
-                <label for="instruksi_siswa" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Tugas Siswa</label>
-                <textarea name="instruksi_siswa" id="instruksi_siswa" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Jelaskan tugas yang harus dilakukan siswa..."></textarea>
+                <label for="instruksi_siswa" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Tugas untuk Siswa</label>
+                <textarea name="instruksi_siswa" id="instruksi_siswa" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Jelaskan langkah aktivitas murid: mengamati, menanya, mencoba, menalar, berdiskusi, berkolaborasi, menyajikan, dan merefleksi dll. Contoh: Murid Menganalisis bagian tubuh tumbuhan."></textarea>
             </div>
 
             <!-- Instruksi Khusus -->
             <div class="space-y-2">
-                <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Keinginan Khusus (Prompt Tambahan)</label>
-                <textarea name="instruksi_khusus" id="instruksi_khusus" rows="2" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Gunakan metode PBL, sertakan referensi lokal, buat soal tingkat HOTS, dll"></textarea>
+                <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Keinginan Khusus (Guru)</label>
+                <textarea name="instruksi_khusus" id="instruksi_khusus" rows="2" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Gunakan konteks kehidupan sehari-hari, sertakan praktik/eksperimen sederhana, diskusi kelompok, refleksi akhir, serta tugas bertahap, kunci jawaban, dan rubrik penilaian."></textarea>
             </div>
 
             <!-- Submit Button -->
             <div class="pt-6">
                 <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
                     <i data-lucide="wand-2" class="w-6 h-6"></i>
-                    Generate LKPD
+                    Hasilkan Sekarang
                 </button>
             </div>
         </form>
@@ -290,7 +290,7 @@
                 <i data-lucide="file-question" class="w-10 h-10"></i>
             </div>
             <h4 class="text-xl font-bold text-slate-400 mb-2">Belum Ada Hasil</h4>
-            <p class="text-slate-400 max-w-sm">Isi formulir di atas dan klik tombol generate untuk mulai membuat LKPD Anda.</p>
+            <p class="text-slate-400 max-w-sm">Isi formulir di atas dan Klik tombol Hasilkan Sekarang untuk mulai membuat LKPD Anda.</p>
         </div>
 
         <!-- Loading State -->

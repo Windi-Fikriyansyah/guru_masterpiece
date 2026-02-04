@@ -69,11 +69,11 @@
                 </a>
                 <a href="{{ route('admin.rpp') }}" class="sidebar-link {{ request()->routeIs('admin.rpp') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="book-open" class="w-5 h-5"></i>
-                    <span class="font-medium">RPP/Modul Ajar</span>
+                    <span class="font-medium">RPM/RPP/Modul Ajar</span>
                 </a>
                 <a href="{{ route('admin.lkpd') }}" class="sidebar-link {{ request()->routeIs('admin.lkpd') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="edit-3" class="w-5 h-5"></i>
-                    <span class="font-medium">LKPD Generator</span>
+                    <span class="font-medium">LKPD/LKM</span>
                 </a>
                 <a href="{{ route('admin.text_summary') }}" class="sidebar-link {{ request()->routeIs('admin.text_summary') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="file-text" class="w-5 h-5"></i>

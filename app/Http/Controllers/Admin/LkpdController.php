@@ -66,14 +66,14 @@ PENTING:
 </table>
 3. Berikan Tujuan Pembelajaran singkat.
 4. Buat Petunjuk Belajar yang jelas.
-5. Susun Kegiatan/Soal dan kunci jawaban yang variatif (bisa Pilihan Ganda, Isian, Uraian, atau Menjodohkan serta kunci jawaban dari setiap jenis soal) sesuai materi.
+5. Susun Kegiatan/Soal dan kunci jawaban yang variatif dan tambahkan gambar sesuai materi soal (bisa Pilihan Ganda, Isian, Uraian, atau Menjodohkan serta kunci jawaban dari setiap jenis soal) sesuai materi.
 6. Tambahkan gambar sesuai materi pada jenis soal maupun kunci jawaban
 7. Susun lembar evaluasi/refleksi murid/kelompok berupa soal sesuai materi dan pedoman penskoran
 8. Gunakan format Markdown yang rapi dengan heading, bold, dan tabel jika perlu.
 9. Jika diminta HOTS atau PBL, pastikan konten mencerminkan hal tersebut.
 
-JANGAN berikan kalimat pembuka seperti 'Berikut adalah LKPD...'. Langsung ke konten. Gunakan kombinasi HTML (untuk tabel identitas) dan Markdown (untuk sisanya).";
-
+JANGAN berikan kalimat pembuka seperti 'Berikut adalah LKPD....'. Langsung ke konten. Gunakan kombinasi HTML (untuk tabel identitas) dan Markdown (untuk sisanya).";
+// tes
             $result = $this->aiService->generateContent($prompt);
 
             if ($result) {

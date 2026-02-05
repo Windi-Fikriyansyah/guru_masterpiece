@@ -262,7 +262,7 @@
 
             <!-- Instruksi Khusus -->
             <div class="space-y-2">
-                <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Keinginan Khusus (Guru)</label>
+                <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Keinginan Khusus</label>
                 <textarea name="instruksi_khusus" id="instruksi_khusus" rows="2" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Gunakan konteks kehidupan sehari-hari, sertakan praktik/eksperimen sederhana, diskusi kelompok, refleksi akhir, serta tugas bertahap, kunci jawaban, dan rubrik penilaian."></textarea>
             </div>
 

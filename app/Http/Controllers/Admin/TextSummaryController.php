@@ -36,7 +36,6 @@ class TextSummaryController extends Controller
 
         try {
             $prompt = "Buatkan Materi Pembelajaran dengan format yang rapi dan informatif berdasarkan data berikut:
-
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
 Kelas: {$request->kelas}
@@ -47,8 +46,8 @@ Instruksi/Keinginan Khusus: {$request->instruksi_khusus}
 
 PENTING:
 1. Mulai langsung dengan Judul Materi (Heading 1).
-2. Sesuaikan kedalaman materi dengan Jenjang dan Kelas siswa.
-3. Untuk 'Materi Lengkap', jelaskan konsep secara komprehensif dengan contoh.
+2. Sesuaikan kedalaman materi dengan Jenjang dan Kelas siswa dan berikan penjelasan yang menyeluruh.
+3. Untuk 'Materi Lengkap', jelaskan konsep secara komprehensif dengan contoh dan gambar sesuai materi serta kesimpulan dan referensi/daftar pustaka yang valid
 4. Untuk 'Ringkasan', ambil intisari materi saja.
 5. Gunakan format Markdown (Heading, Bold, List, Tabel) agar mudah dibaca.
 6. JANGAN ada kalimat pembuka basa-basi dari AI. Langsung ke konten materi.";

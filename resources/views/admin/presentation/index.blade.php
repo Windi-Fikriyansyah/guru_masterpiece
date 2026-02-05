@@ -141,8 +141,8 @@
     
     <!-- Header -->
     <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Generator Kerangka Presentasi</h2>
-        <p class="text-slate-500">Buat outline slide presentasi yang terstruktur dan menarik secara otomatis.</p>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Materi Presentasi</h2>
+        <p class="text-slate-500">Buat materi slide presentasi yang terstruktur dan menarik secara otomatis.</p>
     </div>
 
     <!-- Input Form Card -->
@@ -152,8 +152,8 @@
                 <i data-lucide="presentation" class="w-6 h-6"></i>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-slate-800">Konfigurasi Presentasi</h3>
-                <p class="text-sm text-slate-400">Atur topik dan struktur slide yang diinginkan</p>
+                <h3 class="text-xl font-bold text-slate-800">Rancang Materi Presentasi</h3>
+                <p class="text-sm text-slate-400">Tentukan topik dan alur slide untuk hasil yang terstruktur dan menarik</p>
             </div>
         </div>
         
@@ -192,8 +192,8 @@
 
                 <!-- Kelas/Kelompok -->
                 <div class="space-y-2">
-                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Faselompok</label>
-                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" required>
+                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Fase/Semester</label>
+                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B /Genap" required>
                 </div>
 
                 <!-- Mata Pelajaran -->
@@ -216,7 +216,7 @@
                 <!-- Topik Presentasi -->
                 <div class="space-y-2">
                     <label for="topik" class="block text-sm font-bold text-slate-700 ml-1">Topik Presentasi</label>
-                    <input type="text" name="topik" id="topik" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Tata Surya, Sejarah Kemerdekaan" required>
+                    <input type="text" name="topik" id="topik" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Bagian Tubuh Tumbuhan" required>
                 </div>
 
                  <!-- Jumlah Slide -->
@@ -229,7 +229,7 @@
             <!-- Instruksi Khusus -->
             <div class="space-y-2">
                 <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Keinginan Khusus</label>
-                <textarea name="instruksi_khusus" id="instruksi_khusus" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: sertakan ice breaking di tengah, gunakan pendekatan studi kasus, dll"></textarea>
+                <textarea name="instruksi_khusus" id="instruksi_khusus" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Tambahkan materi penjelasan pada setiap slide presentasi dengan contoh - contohnya"></textarea>
             </div>
 
             <!-- Submit Button -->

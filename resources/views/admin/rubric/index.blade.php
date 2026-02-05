@@ -141,7 +141,7 @@
     
     <!-- Header -->
     <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Generator Rubrik Penilaian</h2>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Buat Rubrik Penilaian</h2>
         <p class="text-slate-500">Buat tabel kriteria penilaian yang objektif dan terukur secara otomatis.</p>
     </div>
 
@@ -152,8 +152,8 @@
                 <i data-lucide="clipboard-check" class="w-6 h-6"></i>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-slate-800">Konfigurasi Rubrik</h3>
-                <p class="text-sm text-slate-400">Tentukan tugas dan kriteria penilaian</p>
+                <h3 class="text-xl font-bold text-slate-800">Rancang Rubrik Penilaian</h3>
+                <p class="text-sm text-slate-400">Tentukan tugas dan kriteria penilaian secara jelas dan terukur</p>
             </div>
         </div>
         
@@ -192,8 +192,8 @@
 
                 <!-- Kelas/Kelompok -->
                 <div class="space-y-2">
-                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Faselompok</label>
-                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" required>
+                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Fase/Semester</label>
+                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B /Genap" required>
                 </div>
 
                 <!-- Mata Pelajaran -->
@@ -215,14 +215,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Nama Tugas -->
                 <div class="space-y-2">
-                    <label for="nama_tugas" class="block text-sm font-bold text-slate-700 ml-1">Nama Tugas / Proyek</label>
-                    <input type="text" name="nama_tugas" id="nama_tugas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Membuat Poster Pahlawan, Presentasi Sains" required>
+                    <label for="nama_tugas" class="block text-sm font-bold text-slate-700 ml-1">Nama Tugas</label>
+                    <input type="text" name="nama_tugas" id="nama_tugas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Mengamati bagian tubuh tumbuhan dan fungsinya" required>
                 </div>
 
                  <!-- Kriteria -->
                  <div class="space-y-2">
-                    <label for="kriteria" class="block text-sm font-bold text-slate-700 ml-1">Kriteria Penilaian (Pisahkan koma)</label>
-                    <input type="text" name="kriteria" id="kriteria" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kerapian, Isi Materi, Kreativitas, Penyampaian" required>
+                    <label for="kriteria" class="block text-sm font-bold text-slate-700 ml-1">Kriteria Penilaian</label>
+                    <input type="text" name="kriteria" id="kriteria" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Pengetahuan, analisa, Penerapan, kerapuan, isi materi, kreativitas, penyampaian dll" required>
                 </div>
             </div>
 
@@ -236,7 +236,7 @@
             <div class="pt-6">
                 <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
                     <i data-lucide="wand-2" class="w-6 h-6"></i>
-                    Generate Rubrik
+                    Hasilkan Sekarang
                 </button>
             </div>
         </form>
@@ -256,7 +256,7 @@
                 <i data-lucide="clipboard-list" class="w-10 h-10"></i>
             </div>
             <h4 class="text-xl font-bold text-slate-400 mb-2">Belum Ada Rubrik</h4>
-            <p class="text-slate-400 max-w-sm">Isi parameter di atas dan klik tombol generate untuk membuat rubrik penilaian Anda.</p>
+            <p class="text-slate-400 max-w-sm">Isi parameter di atas dan klik tombol Hasilkan Sekarang untuk membuat rubrik penilaian Anda.</p>
         </div>
 
         <!-- Loading State -->

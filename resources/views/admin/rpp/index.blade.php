@@ -195,7 +195,7 @@
                     <i data-lucide="file-text" class="w-10 h-10"></i>
                 </div>
                 <h4 class="text-xl font-bold text-slate-400 mb-2">Belum Ada Hasil</h4>
-                <p class="text-slate-400 max-w-sm">Isi formulir di atas dan klik tombol generate untuk mulai membuat
+                <p class="text-slate-400 max-w-sm">Isi formulir di atas dan klik tombol Hasilkan Sekarang untuk mulai membuat
                     RPP/Modul Ajar Anda.</p>
             </div>
 

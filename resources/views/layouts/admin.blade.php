@@ -77,24 +77,25 @@
                 </a>
                 <a href="{{ route('admin.text_summary') }}" class="sidebar-link {{ request()->routeIs('admin.text_summary') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="file-text" class="w-5 h-5"></i>
-                    <span class="font-medium">Teks & Ringkasan</span>
+                    <span class="font-medium">Materi Ajar</span>
+                </a>
+                <a href="{{ route('admin.presentation') }}" class="sidebar-link {{ request()->routeIs('admin.presentation') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
+                    <i data-lucide="presentation" class="w-5 h-5"></i>
+                    <span class="font-medium">Materi Presentasi</span>
                 </a>
                 <a href="{{ route('admin.soal') }}" class="sidebar-link {{ request()->routeIs('admin.soal') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="help-circle" class="w-5 h-5"></i>
                     <span class="font-medium">Soal Otomatis</span>
                 </a>
-                <a href="{{ route('admin.presentation') }}" class="sidebar-link {{ request()->routeIs('admin.presentation') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
-                    <i data-lucide="presentation" class="w-5 h-5"></i>
-                    <span class="font-medium">Kerangka Presentasi</span>
-                </a>
+                
                 <a href="{{ route('admin.rubric') }}" class="sidebar-link {{ request()->routeIs('admin.rubric') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="clipboard-check" class="w-5 h-5"></i>
                     <span class="font-medium">Rubrik Penilaian</span>
                 </a>
-                <a href="{{ route('admin.ice_breaking') }}" class="sidebar-link {{ request()->routeIs('admin.ice_breaking') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
+                <!-- <a href="{{ route('admin.ice_breaking') }}" class="sidebar-link {{ request()->routeIs('admin.ice_breaking') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="zap" class="w-5 h-5"></i>
                     <span class="font-medium">Ice Breaking</span>
-                </a>
+                </a> -->
                 <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="message-circle" class="w-5 h-5"></i>
                     <span class="font-medium">CurhatBareng</span>

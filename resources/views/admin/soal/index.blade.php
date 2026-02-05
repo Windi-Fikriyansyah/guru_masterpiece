@@ -141,8 +141,8 @@
     
     <!-- Header -->
     <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Generator Soal Otomatis</h2>
-        <p class="text-slate-500">Buat soal ujian yang berkualitas, variatif, dan sesuai kurikulum dalam hitungan detik.</p>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Buat Soal Otomatis</h2>
+        <p class="text-slate-500">Buat soal - soal berkualitas, variatif, dan siap digunakan dalam hitungan detik atau menit</p>
     </div>
 
     <!-- Input Form Card -->
@@ -152,8 +152,8 @@
                 <i data-lucide="file-check-2" class="w-6 h-6"></i>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-slate-800">Konfigurasi Soal</h3>
-                <p class="text-sm text-slate-400">Atur parameter soal yang ingin dibuat</p>
+                <h3 class="text-xl font-bold text-slate-800">Siapkan Soal</h3>
+                <p class="text-sm text-slate-400">Tentukan parameter soal untuk hasil yang optimal</p>
             </div>
         </div>
         
@@ -192,8 +192,8 @@
 
                 <!-- Kelas/Kelompok -->
                 <div class="space-y-2">
-                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Faselompok</label>
-                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" required>
+                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Fase/Semester</label>
+                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B /Genap" required>
                 </div>
 
                 <!-- Mata Pelajaran -->
@@ -263,13 +263,13 @@
             <!-- Topik Materi -->
             <div class="space-y-2">
                 <label for="topik" class="block text-sm font-bold text-slate-700 ml-1">Topik/Bab Soal</label>
-                <input type="text" name="topik" id="topik" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Operasi Hitung Campuran, Perang Diponegoro" required>
+                <input type="text" name="topik" id="topik" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Bagian Tubuh Tumbuhan" required>
             </div>
 
              <!-- Tempel Materi -->
              <div class="space-y-2">
-                <label for="materi" class="block text-sm font-bold text-slate-700 ml-1">Tempel Materi (Opsional)</label>
-                <textarea name="materi" id="materi" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Tempelkan teks materi di sini agar soal lebih akurat sesuai sumber belajar..."></textarea>
+                <label for="materi" class="block text-sm font-bold text-slate-700 ml-1">Masukan Materi (Opstional)</label>
+                <textarea name="materi" id="materi" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Masukan teks materi disini agar soal lebih akurat sesuai sumber belajar"></textarea>
             </div>
 
             <!-- Instruksi Khusus -->
@@ -282,7 +282,7 @@
             <div class="pt-6">
                 <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
                     <i data-lucide="wand-2" class="w-6 h-6"></i>
-                    Generate Soal
+                    Hasilkan Sekarang
                 </button>
             </div>
         </form>
@@ -302,7 +302,7 @@
                 <i data-lucide="file-question" class="w-10 h-10"></i>
             </div>
             <h4 class="text-xl font-bold text-slate-400 mb-2">Belum Ada Soal</h4>
-            <p class="text-slate-400 max-w-sm">Isi parameter soal di atas dan klik tombol generate untuk membuat soal ujian Anda.</p>
+            <p class="text-slate-400 max-w-sm">Isi parameter soal di atas dan Klik tombol Hasilkan Sekarang untuk membuat soal ujian Anda.</p>
         </div>
 
         <!-- Loading State -->

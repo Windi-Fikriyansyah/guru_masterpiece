@@ -141,8 +141,8 @@
     
     <!-- Header -->
     <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Teks & Ringkasan Generator</h2>
-        <p class="text-slate-500">Buat materi ajar, ringkasan, atau poin penting pembelajaran dengan mudah.</p>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Materi Ajar Praktis</h2>
+        <p class="text-slate-500">Buat materi ajar, ringkasan, dan poin penting pembelajaran dengan mudah</p>
     </div>
 
     <!-- Input Form Card -->
@@ -152,8 +152,8 @@
                 <i data-lucide="align-left" class="w-6 h-6"></i>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-slate-800">Input Materi</h3>
-                <p class="text-sm text-slate-400">Tentukan topik dan gaya materi yang diinginkan</p>
+                <h3 class="text-xl font-bold text-slate-800">Input Materi Ajar</h3>
+                <p class="text-sm text-slate-400">Masukkan topik dan gaya penyajian yang diinginkan</p>
             </div>
         </div>
         
@@ -192,8 +192,8 @@
 
                 <!-- Kelas/Kelompok -->
                 <div class="space-y-2">
-                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Faselompok</label>
-                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B atau kelas X Fase E" required>
+                    <label for="kelas" class="block text-sm font-bold text-slate-700 ml-1">Kelas/Fase/Semester</label>
+                    <input type="text" name="kelas" id="kelas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Kelas IV Fase B /Genap" required>
                 </div>
 
                 <!-- Mata Pelajaran -->
@@ -215,8 +215,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <!-- Topik Materi -->
                  <div class="space-y-2">
-                    <label for="topik" class="block text-sm font-bold text-slate-700 ml-1">Topik Materi</label>
-                    <input type="text" name="topik" id="topik" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Ekosistem Laut, Hukum Newton" required>
+                    <label for="topik" class="block text-sm font-bold text-slate-700 ml-1">Topik Materi Ajar</label>
+                    <input type="text" name="topik" id="topik" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Bagian tubuh tumbuhan" required>
                 </div>
 
                  <!-- Tipe Konten -->
@@ -235,15 +235,15 @@
 
             <!-- Instruksi Khusus -->
             <div class="space-y-2">
-                <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Instruksi / Keinginan Khusus</label>
-                <textarea name="instruksi_khusus" id="instruksi_khusus" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Gunakan bahasa yang santai, perbanyak analogi, sesuaikan untuk anak visual, dll"></textarea>
+                <label for="instruksi_khusus" class="block text-sm font-bold text-slate-700 ml-1">Intruksi /Keinginan Khusus</label>
+                <textarea name="instruksi_khusus" id="instruksi_khusus" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Buatkan materi lengkap penjelasan dengan contoh dan gambar sesuai materi atau gunakan gaya bahasa santai, perbanyak analogi, sesuaikan untuk anak visual dll"></textarea>
             </div>
 
             <!-- Submit Button -->
             <div class="pt-6">
                 <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
                     <i data-lucide="wand-2" class="w-6 h-6"></i>
-                    Generate Materi
+                    Hasilkan Sekarang
                 </button>
             </div>
         </form>

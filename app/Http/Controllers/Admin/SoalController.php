@@ -38,7 +38,6 @@ class SoalController extends Controller
 
         try {
             $prompt = "Buatkan Soal Ujian dengan format yang rapi dan siap cetak berdasarkan kriteria berikut:
-
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
 Kelas: {$request->kelas}
@@ -55,7 +54,7 @@ Materi Tambahan (Referensi):
 
 PENTING FORMAT OUTPUT:
 1. Mulai dengan JUDUL (Heading 1).
-2. Buat tabel identitas siswa (Nama, Kelas, Hari/Tanggal) menggunakan HTML Table (style: border-bottom only) agar rapi secara vertikal.
+2. Buat tabel identitas siswa (Nama, Kelas, Hari/Tanggal/Tahun) menggunakan HTML Table (style: border-bottom only) agar rapi secara vertikal.
 <table style='width: 100%; border: none; margin-bottom: 20px;'>
     <tr>
         <td style='width: 15%; border: none; padding: 5px; font-weight: bold;'>Nama</td>
@@ -69,15 +68,16 @@ PENTING FORMAT OUTPUT:
     </tr>
 </table>
 
-3. Sajikan soal dengan penomoran yang jelas.
+3. Sajikan soal dengan penomoran yang jelas and gambar sesuai materi pada soal.
 4. KHUSUS PILIHAN GANDA:
+   - tambahkan gambar yang jelas sesuai materi soalnya
    - Opsi jawaban (A, B, C, D, E) HARUS menggunakan format LIST MARKDOWN (tanda strip -) seperti ini:
      1. Pertanyaan...
         - A. Pilihan 1
         - B. Pilihan 2
         - C. Pilihan 3
         - D. Pilihan 4
-5. Kunci jawaban diletakkan TERPISAH (halaman baru atau paling bawah) with judul \"KUNCI JAWABAN\".
+   5. Kunci jawaban diletakkan TERPISAH (halaman baru atau paling bawah) with judul \"KUNCI JAWABAN\".
 6. Sesuaikan kompleksitas soal dengan Taksonomi Bloom ({$request->taksonomi}) and Tingkat Kesulitan ({$request->kesulitan}).
 7. Gunakan format Markdown yang rapi, berikan jarak antar nomor soal. JANGAN ada kalimat pembuka basa-basi.";
 

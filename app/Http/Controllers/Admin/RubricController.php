@@ -72,7 +72,7 @@ PENTING FORMAT OUTPUT:
 4. Tambahkan Rumus / Pedoman Penilaian Singkat di bawah tabel.
 5. Gunakan format Markdown Table untuk tabel rubriknya.
 Example Markdown Table:
-| Kriteria | Skor 4 | Skor 3 | Skor 2 | Skor 1 |
+| Kriteria | Skor 4 (Sangat Baik)| Skor 3 (Baik)| Skor 2 (Cukup)| Skor 1 (Perlu Bimbingan)|
 | --- | --- | --- | --- | --- |
 | ... | ... | ... | ... | ... |
 

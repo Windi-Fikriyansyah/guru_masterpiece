@@ -61,15 +61,15 @@ PENTING FORMAT OUTPUT:
 </table>
 
 3. Sajikan Outline Per Slide dengan format:
-   **Slide 1: [Judul Slide]**
-   - Poin visual/gambar yang disarankan
-   - Poin-poin materi utama (bullet points)
+   Slide 1: [Judul Slide]
+   - Poin visual/gambar: tambahkan gambar sesuai topik/materi
+   - Poin-poin materi utama dan penjelasannya (bullet points) dan sedikit deskripsi
    - Narasi pembicara (opsional/singkat)
 
-   **Slide 2: [Judul Slide]**
+   Slide 2: [Judul Slide]
    ... dan seterusnya sampai Slide {$request->jumlah_slide}.
 
-4. Pastikan alur materi logis: Pembukaan -> Isi Materi -> Contoh/Studi Kasus -> Kesimpulan/Penutup.
+4. Pastikan alur materi logis: Pembukaan -> Isi Materi, penjelasan dan gambar-> Contoh/Studi Kasus -> Kesimpulan/Penutup.
 5. Gunakan format Markdown yang rapi. JANGAN ada kalimat pembuka basa-basi.";
 
             $result = $this->aiService->generateContent($prompt);

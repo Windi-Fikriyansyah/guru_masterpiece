@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('header')
-    RPP / Modul Ajar Generator
+    Modul Ajar Otomatis
 @endsection
 
 @section('content')

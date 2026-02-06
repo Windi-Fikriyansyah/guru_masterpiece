@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('header')
-    Dashboard Overview
+    Dashboard Guru Masterpiece
 @endsection
 
 @section('content')

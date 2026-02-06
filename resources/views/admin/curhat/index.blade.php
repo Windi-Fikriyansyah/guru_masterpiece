@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('header', 'Curhat Bareng')
+@section('header', 'Refleksi Guru')
 
 @push('styles')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -49,8 +49,8 @@
     
     <!-- Header -->
     <div class="text-center">
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Curhat Bareng Guru</h2>
-        <p class="text-slate-500 text-lg">Bagikan beban Anda, temukan dukungan dan inspirasi di sini.</p>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Refleksi Pembelajaran Guru</h2>
+        <p class="text-slate-500 text-lg">Catat pengalaman, tantangan, dan evaluasi untuk pembelajaran yang terus berkembang</p>
     </div>
 
     <!-- Input Form Card -->
@@ -60,8 +60,8 @@
                 <i data-lucide="heart" class="w-6 h-6"></i>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-slate-800">Ruang Cerita</h3>
-                <p class="text-sm text-slate-400">Kami siap mendengarkan cerita Anda</p>
+                <h3 class="text-xl font-bold text-slate-800">Ruang Refleksi</h3>
+                <p class="text-sm text-slate-400">Kami siap mendengarkan pengalaman dan cerita Anda hari ini.</p>
             </div>
         </div>
         
@@ -71,20 +71,34 @@
             <!-- Cerita -->
             <div class="space-y-2">
                 <label for="cerita" class="block text-sm font-bold text-slate-700 ml-1">Apa yang ingin Anda ceritakan hari ini?</label>
-                <textarea name="cerita" id="cerita" rows="5" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-5 py-4 focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Contoh: Saya merasa kesulitan menghadapi beberapa siswa yang kurang disiplin di kelas hari ini..." required></textarea>
+                <textarea name="cerita" id="cerita" rows="5" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-5 py-4 focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all font-medium text-slate-700 placeholder:text-slate-400" placeholder="Tuliskan refleksi atau tantangan Anda dengan jujur dan bebas. Contoh: Beberapa murid cepat memahami materi, sementara yang lain tertinggal. Saya butuh cara menerapkan diferensiasi yang lebih efektif." required></textarea>
             </div>
 
             <!-- Gaya Respon -->
             <div class="space-y-2">
-                <label for="gaya_respon" class="block text-sm font-bold text-slate-700 ml-1">Ingin Respon Seperti Apa?</label>
-                <select name="gaya_respon" id="gaya_respon" class="w-full select2-enable" required>
-                    <option value="">Pilih Gaya Respon</option>
-                    <option value="Memberi Motivasi">Memberi Motivasi</option>
-                    <option value="Mendengarkan Saja">Mendengarkan Saja</option>
-                    <option value="Memberi Solusi Praktis">Memberi Solusi Praktis</option>
-                    <option value="Humor/Menghibur">Humor / Menghibur</option>
-                </select>
-            </div>
+    <label for="gaya_respon" class="block text-sm font-bold text-slate-700 ml-1">
+        Ingin Respon Seperti Apa?
+    </label>
+    <p class="text-xs text-slate-500 ml-1">
+        Pilih gaya respon yang paling Anda butuhkan saat ini
+    </p>
+
+    <select name="gaya_respon" id="gaya_respon" 
+        class="w-full select2-enable"
+        data-placeholder="Pilih gaya respon..."
+        required>
+        
+        <option value=""></option> <!-- placeholder untuk Select2 -->
+        <option value="Solutif & Praktis">Solutif & Praktis</option>
+        <option value="Empatik & Menenangkan">Empatik & Menenangkan</option>
+        <option value="Reflektif & Mendalam">Reflektif & Mendalam</option>
+        <option value="Inspiratif & Memotivasi">Inspiratif & Memotivasi</option>
+        <option value="Ringkas & Langsung ke Inti">Ringkas & Langsung ke Inti</option>
+        <option value="Terstruktur & Sistematis">Terstruktur & Sistematis</option>
+        <option value="Humor & Menghibur">Humor & Menghibur</option>
+    </select>
+</div>
+
 
             <!-- Submit Button -->
             <div class="pt-4">

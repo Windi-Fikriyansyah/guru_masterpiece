@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/ice-breaking', [\App\Http\Controllers\Admin\IceBreakingController::class, 'index'])->name('admin.ice_breaking');
     Route::post('/ice-breaking/generate', [\App\Http\Controllers\Admin\IceBreakingController::class, 'generate'])->name('admin.ice_breaking.generate');
+
+    Route::get('/curhat', [\App\Http\Controllers\Admin\CurhatController::class, 'index'])->name('admin.curhat');
+    Route::post('/curhat/generate', [\App\Http\Controllers\Admin\CurhatController::class, 'generate'])->name('admin.curhat.generate');
 });
 
 require __DIR__.'/auth.php';

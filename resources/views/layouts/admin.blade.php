@@ -96,9 +96,9 @@
                     <i data-lucide="zap" class="w-5 h-5"></i>
                     <span class="font-medium">Ice Breaking</span>
                 </a> -->
-                <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                    <span class="font-medium">CurhatBareng</span>
+                <a href="{{ route('admin.curhat') }}" class="sidebar-link {{ request()->routeIs('admin.curhat') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                    <span class="font-medium">Curhat Bareng</span>
                 </a>
             </nav>
 

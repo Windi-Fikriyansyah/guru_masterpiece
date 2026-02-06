@@ -36,11 +36,13 @@ class SoalController extends Controller
             'topik' => 'required',
         ]);
 
+        $request->merge(['kelas_fase_semester' => $request->kelas]);
+
         try {
-            $prompt = "Buatkan Soal Ujian dengan format yang rapi dan siap cetak berdasarkan kriteria berikut:
+            $prompt = "Buatkan Soal dengan format yang rapi dan siap cetak berdasarkan kriteria berikut:
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
-Kelas: {$request->kelas}
+Kelas/Fase/Semester: {$request->kelas_fase_semester}
 Mata Pelajaran: {$request->mapel}
 Topik/Bab: {$request->topik}
 Bentuk Soal: {$request->bentuk_soal}
@@ -53,7 +55,7 @@ Materi Tambahan (Referensi):
 " . ($request->materi ?? 'Tidak ada materi spesifik, gunakan pengetahuan umum sesuai kurikulum.') . "
 
 PENTING FORMAT OUTPUT:
-1. Mulai dengan JUDUL (Heading 1).
+1. Mulai dengan JUDUL TOPIK (Heading 1).
 2. Buat tabel identitas siswa (Nama, Kelas, Hari/Tanggal/Tahun) menggunakan HTML Table (style: border-bottom only) agar rapi secara vertikal.
 <table style='width: 100%; border: none; margin-bottom: 20px;'>
     <tr>
@@ -67,16 +69,18 @@ PENTING FORMAT OUTPUT:
         <td style='border: none; border-bottom: 1px solid #ddd; padding: 5px;'>{$request->kelas}</td>
     </tr>
 </table>
-
-3. Sajikan soal dengan penomoran yang jelas and gambar sesuai materi pada soal.
-4. KHUSUS PILIHAN GANDA:
-   - tambahkan gambar yang jelas sesuai materi soalnya
-   - Opsi jawaban (A, B, C, D, E) HARUS menggunakan format LIST MARKDOWN (tanda strip -) seperti ini:
-     1. Pertanyaan...
-        - A. Pilihan 1
-        - B. Pilihan 2
-        - C. Pilihan 3
-        - D. Pilihan 4
+3. Sajikan soal dengan penomoran yang jelas dan gambar yang sesuai dengan materi pada setiap soal (jika relevan).
+4. KHUSUS SOAL PILIHAN GANDA:
+-Tampilkan gambar yang jelas dan relevan dengan konteks soal (bukan hanya deskripsi gambar).
+-	Jika soal membutuhkan visual, gambar WAJIB ditampilkan langsung bersama soal.
+-	Opsi jawaban HARUS menggunakan format LIST MARKDOWN (tanda strip -) dengan susunan berikut:
+1. [Teks Pertanyaan]
+   [Tampilkan gambar yang relevan dengan soal]
+   - A. Pilihan jawaban pertama
+   - B. Pilihan jawaban kedua
+   - C. Pilihan jawaban ketiga
+   - D. Pilihan jawaban keempat
+   - E. Pilihan jawaban kelima (jika diperlukan)
    5. Kunci jawaban diletakkan TERPISAH (halaman baru atau paling bawah) with judul \"KUNCI JAWABAN\".
 6. Sesuaikan kompleksitas soal dengan Taksonomi Bloom ({$request->taksonomi}) and Tingkat Kesulitan ({$request->kesulitan}).
 7. Gunakan format Markdown yang rapi, berikan jarak antar nomor soal. JANGAN ada kalimat pembuka basa-basi.";

@@ -34,12 +34,14 @@ class LkpdController extends Controller
             'instruksi_khusus' => 'nullable',
         ]);
 
+        $request->merge(['kelas_fase_semester' => $request->kelas]);
+
         try {
             $prompt = "Buatkan Lembar Kerja Peserta Didik (LKPD) yang lengkap, menarik, dan siap cetak dengan data berikut:
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
-Kelas/Kelompok: {$request->kelas}
-Mata Pelajaran/Lingkup Perkembangan: {$request->mapel}
+Kelas/Fase/Semester: {$request->kelas_fase_semester}
+Mata Pelajaran: {$request->mapel}
 Materi Spesifik: {$request->materi}
 Instruksi/Tugas untuk Siswa: {$request->instruksi_siswa}
 Instruksi/Keinginan Khusus (Guru): {$request->instruksi_khusus}
@@ -59,20 +61,23 @@ PENTING:
         <td style=\"border: none; border-bottom: 1px solid #ddd; padding: 5px;\">{$request->kelas}</td>
     </tr>
     <tr>
-        <td style=\"border: none; padding: 5px; font-weight: bold;\">Hari/Tanggal</td>
+        <td style=\"border: none; padding: 5px; font-weight: bold;\">Hari/Tanggal/Tahun</td>
         <td style=\"border: none; padding: 5px;\">:</td>
         <td style=\"border: none; border-bottom: 1px dotted #000; padding: 5px;\"></td>
     </tr>
 </table>
 3. Berikan Tujuan Pembelajaran singkat.
 4. Buat Petunjuk Belajar yang jelas.
-5. Susun Kegiatan/Soal dan kunci jawaban yang variatif dan tambahkan gambar sesuai materi soal (bisa Pilihan Ganda, Isian, Uraian, atau Menjodohkan serta kunci jawaban dari setiap jenis soal) sesuai materi.
-6. Tambahkan gambar sesuai materi pada jenis soal maupun kunci jawaban
+5. Susun Kegiatan/Soal dan kunci jawaban yang variatif serta tambahkan gambar sesuai materi soal (bisa Pilihan Ganda, Isian, Uraian, atau Menjodohkan dan kunci jawaban dari setiap jenis soal) sesuai materi.
+6. Tambahkan gambar yang relevan dengan materi pada:
+-  Setiap kegiatan atau soal (jika diperlukan untuk membantu pemahaman),
+-  Setiap jenis soal,
+-  Bagian kunci jawaban (jika visual membantu memperjelas jawaban).
 7. Susun lembar evaluasi/refleksi murid/kelompok berupa soal sesuai materi dan pedoman penskoran
 8. Gunakan format Markdown yang rapi dengan heading, bold, dan tabel jika perlu.
 9. Jika diminta HOTS atau PBL, pastikan konten mencerminkan hal tersebut.
 
-JANGAN berikan kalimat pembuka seperti 'Berikut adalah LKPD....'. Langsung ke konten. Gunakan kombinasi HTML (untuk tabel identitas) dan Markdown (untuk sisanya).";
+JANGAN berikan kalimat pembuka seperti 'Berikut adalah LKPD...'. Langsung ke konten. Gunakan kombinasi HTML (untuk tabel identitas) dan Markdown (untuk sisanya).";
 // tes
             $result = $this->aiService->generateContent($prompt);
 

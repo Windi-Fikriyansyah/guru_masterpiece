@@ -33,12 +33,13 @@ class PresentationController extends Controller
             'jumlah_slide' => 'required|numeric|min:3|max:20',
         ]);
 
+        $request->merge(['kelas_Fase_Semester' => $request->kelas]);
+
         try {
             $prompt = "Buatkan Kerangka Presentasi (Slide Deck Outline) yang menarik dan edukatif berdasarkan data berikut:
-
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
-Kelas: {$request->kelas}
+Kelas/Fase/Semester: {$request->kelas_Fase_Semester}
 Mata Pelajaran: {$request->mapel}
 Topik Presentasi: {$request->topik}
 Target Jumlah Slide: {$request->jumlah_slide} slide
@@ -59,16 +60,18 @@ PENTING FORMAT OUTPUT:
         <td style='border: none; border-bottom: 1px solid #ddd; padding: 5px;'>{$request->kelas}</td>
     </tr>
 </table>
-
-3. Sajikan Outline Per Slide dengan format:
-   Slide 1: [Judul Slide]
-   - Poin visual/gambar: tambahkan gambar sesuai topik/materi
-   - Poin-poin materi utama dan penjelasannya (bullet points) dan sedikit deskripsi
-   - Narasi pembicara (opsional/singkat)
-
+3. Sajikan outline materi per slide dengan format berikut:
+Slide 1: [Judul Slide]
+-	Visual/Gambar:
+o	Tampilkan gambar secara langsung yang relevan dengan topik/materi slide (bukan hanya deskripsi atau rekomendasi).
+o	Pilih visual yang edukatif, kontekstual, dan mendukung pemahaman materi.
+-	Poin-poin Materi Utama:
+o	Sajikan poin-poin materi dalam bentuk bullet points.
+o	Setiap poin wajib disertai penjelasan singkat (1–2 kalimat) yang membantu guru dan murid memahami inti materi.
+ - Narasi pembicara (opsional/singkat)
+-  Ulangi format ini secara konsisten untuk setiap slide berikutnya.
    Slide 2: [Judul Slide]
    ... dan seterusnya sampai Slide {$request->jumlah_slide}.
-
 4. Pastikan alur materi logis: Pembukaan -> Isi Materi, penjelasan dan gambar-> Contoh/Studi Kasus -> Kesimpulan/Penutup.
 5. Gunakan format Markdown yang rapi. JANGAN ada kalimat pembuka basa-basi.";
 

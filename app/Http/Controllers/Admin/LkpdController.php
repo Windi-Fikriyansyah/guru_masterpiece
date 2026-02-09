@@ -37,7 +37,7 @@ class LkpdController extends Controller
         $request->merge(['kelas_fase_semester' => $request->kelas]);
 
         try {
-            $prompt = "Buatkan Lembar Kerja Peserta Didik (LKPD) yang lengkap, menarik, dan siap cetak berdasarkan data berikut:
+           $prompt = "Buatkan Lembar Kerja Peserta Didik (LKPD) yang lengkap, menarik, dan siap cetak berdasarkan data berikut:
 
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
@@ -48,7 +48,7 @@ Instruksi/Tugas untuk Siswa: {$request->instruksi_siswa}
 Instruksi/Keinginan Khusus (Guru): {$request->instruksi_khusus}
 
 PENTING (WAJIB DIPATUHI):
-1. Langsung mulai dengan *JUDUL LKPD* yang menarik menggunakan *Heading 1 (# Judul)*.
+1. Langsung mulai dengan *LEMBAR KERJA PESERTA DIDIK (LKPD) DAN JUDUL LKPD* yang menarik menggunakan *Heading 1 (# Judul)*.
    ❌ Jangan menambahkan kalimat pembuka seperti 'Berikut adalah LKPD...'.
 
 2. Di bawah judul, buat *tabel identitas siswa* menggunakan *HTML Table* berikut (WAJIB sama persis):
@@ -97,12 +97,8 @@ PENTING (WAJIB DIPATUHI):
    - ❌ Jangan hanya menuliskan nama surat, nomor ayat, atau nomor hadits.
    - Sertakan *terjemahan* dan *penjelasan singkat* keterkaitannya dengan materi LKPD.
 
-8. Tambahkan *lembar evaluasi/refleksi siswa atau kelompok*, disertai:
-   - Pertanyaan reflektif sesuai materi,
-   - Pedoman atau rubrik penskoran sederhana.
-
+8. Susun lembar evaluasi/refleksi murid/kelompok berupa soal sesuai materi dan pedoman penskoran
 9. Gunakan *kombinasi HTML (tabel identitas)* dan *Markdown (heading, bold, list, tabel)* secara rapi dan konsisten.
-
 10. Jika diminta *HOTS atau PBL*, pastikan:
     - Soal bersifat analitis, kontekstual, dan menuntut berpikir tingkat tinggi,
     - Siswa diajak mengamati, menalar, dan menyimpulkan.

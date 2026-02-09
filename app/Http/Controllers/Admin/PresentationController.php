@@ -67,7 +67,7 @@ PENTING FORMAT OUTPUT (WAJIB DIPATUHI):
 3. Sajikan *outline per slide* dengan format KONSISTEN berikut:
 
 *Slide 1: [Judul Slide]*
-- *Visual/Gambar (WAJIB ADA):*
+- *Visual/Gambar:*
   - Tampilkan *gambar secara langsung* yang relevan dengan isi slide.
   - Gambar harus edukatif, kontekstual, dan membantu pemahaman materi (bukan sekadar hiasan).
 
@@ -90,7 +90,7 @@ PENTING FORMAT OUTPUT (WAJIB DIPATUHI):
    - Penjelasan mendalam & contoh / studi kasus
    - Ringkasan / kesimpulan / penutup
 
-6. *GAMBAR / VISUAL (WAJIB):*
+6. *GAMBAR / VISUAL:*
    - Setiap slide *HARUS memiliki minimal satu gambar*.
    - Apapun topik dan bentuk materinya, *gambar tetap harus ada*.
    - Visual digunakan untuk memperjelas konsep, proses, atau contoh, bukan sekadar dekorasi.

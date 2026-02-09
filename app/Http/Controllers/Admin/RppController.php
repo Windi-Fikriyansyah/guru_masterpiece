@@ -42,7 +42,7 @@ class RppController extends Controller
         ]);
 
         try {
-            $prompt = $prompt = <<<PROMPT
+            $prompt = $prompt = $prompt = <<<PROMPT
 Buatkan *Perencanaan Pembelajaran (Modul Ajar Pembelajaran Mendalam)* dengan format resmi *Kurikulum Merdeka Belajar, bahasa formal, sistematis, dan siap digunakan sebagai **dokumen resmi sekolah*, berdasarkan data berikut:
 
 - Nama Sekolah: {$request->nama_sekolah}
@@ -59,9 +59,7 @@ Buatkan *Perencanaan Pembelajaran (Modul Ajar Pembelajaran Mendalam)* dengan for
 
 Gunakan struktur *Modul Ajar Pembelajaran Mendalam – Format Resmi Kurikulum Merdeka* berikut dan *WAJIB mengikuti urutan serta formatnya secara konsisten*.
 
-==================================================
 PERENCANAAN PEMBELAJARAN MENDALAM
-==================================================
 
 A. INFORMASI UMUM
 - Nama sekolah: {$request->nama_sekolah}
@@ -143,9 +141,17 @@ Buatkan asesmen lengkap dalam *TABEL Markdown*:
 - Sertakan teknik, instrumen, dan kriteria penilaian.
 - Tambahkan *visual pendukung jika relevan* (WAJIB ADA minimal satu).
 
-==================================================
+
+| Mengetahui, | {$request->bulan_tahun} |
+|---|---|
+| Kepala {$request->nama_sekolah} | Guru Mata Pelajaran |
+| | |
+| | |
+| | |
+| (..........................) | (..........................) |
+| NIP. | NIP. |
+
 KETENTUAN TAMBAHAN (WAJIB DIPATUHI):
-==================================================
 1. *GAMBAR / VISUAL WAJIB ADA*
    - Apapun mata pelajaran dan topiknya, *gambar harus ditampilkan langsung* di dalam modul.
    - Visual digunakan untuk memperjelas konsep, proses, atau pengalaman belajar (bukan hiasan).
@@ -158,19 +164,6 @@ KETENTUAN TAMBAHAN (WAJIB DIPATUHI):
 
 3. Gunakan *format Markdown* secara konsisten (Heading, Bold, Tabel).
 4. *JANGAN* menambahkan kata pembuka atau penutup seperti “Berikut adalah…” atau “Semoga bermanfaat”.
-
-==================================================
-TANDA TANGAN
-==================================================
-
-| Mengetahui, | {$request->bulan_tahun} |
-|---|---|
-| Kepala {$request->nama_sekolah} | Guru Mata Pelajaran |
-| | |
-| | |
-| | |
-| (..........................) | (..........................) |
-| NIP. | NIP. |
 PROMPT;
 
             $result = $this->aiService->generateContent($prompt);

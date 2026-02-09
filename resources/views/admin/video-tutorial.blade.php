@@ -15,39 +15,45 @@
         $tutorials = [
             [
                 'title' => 'Cara Menyusun Modul Ajar Secara Otomatis',
-                'description' => 'Tutorial lengkap langkah demi langkah menyusun modul ajar, RPP, dan RPM menggunakan AI.',
+                'description' => 'Tutorial lengkap langkah demi langkah menyusun modul ajar/RPP/RPM menggunakan Aplikasi Guru Masterpiece.',
                 'youtube_id' => 'WGByn62KCqw', // Placeholder
                 'category' => 'Modul Ajar',
             ],
             [
-                'title' => 'Membuat Soal & Rubrik Penilaian Cepat',
-                'description' => 'Bagaimana cara menghasilkan soal ujian dan rubrik penilaian yang selaras dengan materi.',
+                'title' => 'Membuat LKPD/LKM Siap Pakai',
+                'description' => 'Tutorial membuat LKPD/LKM dengan mudah dan terstruktur sesuai kurikulum.',
                 'youtube_id' => 'Gj6B_EW2NbE', // Placeholder
-                'category' => 'Penilaian',
+                'category' => 'LKPD/LKM',
             ],
             [
-                'title' => 'Eksplorasi Fitur Refleksi Guru',
-                'description' => 'Menggunakan asisten AI untuk mencatat evaluasi dan refleksi harian guru.',
+                'title' => 'Cara Menggunakaan Fitur Materi Ajar Praktis',
+                'description' => 'Tutorial membuat materi ajar, ringkasan, dan poin penting pembelajaran dengan mudah.',
                 'youtube_id' => '15hw-gBjsYk', // Placeholder
-                'category' => 'Refleksi',
+                'category' => 'Materi Ajar',
             ],
             [
                 'title' => 'Menyusun Materi Presentasi Interaktif',
-                'description' => 'Cara membuat poin-poin presentasi yang menarik dan terstruktur untuk di kelas.',
+                'description' => 'Tutorial Cara membuat poin-poin presentasi yang menarik dan terstruktur untuk di kelas.',
                 'youtube_id' => 'v113geZC97w', // Placeholder
-                'category' => 'Materi Ajar',
+                'category' => 'Materi Presentasi',
             ],
             [
-                'title' => 'Menyusun Materi Presentasi Interaktif',
-                'description' => 'Cara membuat poin-poin presentasi yang menarik dan terstruktur untuk di kelas.',
+                'title' => 'Membuat Soal Otomatis',
+                'description' => 'Tutorial bagaimana cara menghasilkan soal - soal yang selaras dengan materi.',
                 'youtube_id' => 'hgpQPX4gxrc', // Placeholder
-                'category' => 'Materi Ajar',
+                'category' => 'Soal-Soal',
             ],
             [
-                'title' => 'Menyusun Materi Presentasi Interaktif',
-                'description' => 'Cara membuat poin-poin presentasi yang menarik dan terstruktur untuk di kelas.',
+                'title' => 'Cara Buat Rubrik Penilaian',
+                'description' => 'Tutorial buat tabel kriteria penilaian yang objektif dan terukur secara otomatis.',
+                'youtube_id' => 'OlS-fDmMmDY', // Placeholder
+                'category' => 'Rubrik Penilaian',
+            ],
+            [
+                'title' => 'Cara mengisi refleksi guru untuk pembelajaran',
+                'description' => 'Tutorial menggunakan fitur refleksi guru untuk pembelajaran yang terus berkembang.',
                 'youtube_id' => 'e8UenJxU61o', // Placeholder
-                'category' => 'Materi Ajar',
+                'category' => 'Refleksi Guru',
             ],
         ];
     @endphp

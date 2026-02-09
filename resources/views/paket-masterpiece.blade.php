@@ -143,13 +143,13 @@
                             <span class="text-xl">🎁</span>
                             <span>Akses Grup Premium (WhatsApp)</span>
                         </div>
-                        <div class="flex items-center gap-3 text-white font-semibold">
+                        <!-- <div class="flex items-center gap-3 text-white font-semibold">
                             <span class="text-xl">🎁</span>
                             <div class="flex flex-col">
                                 <span>Program Affiliate Gratis</span>
                                 <span class="text-xs text-primary font-bold">Komisi 30% per produk terjual</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

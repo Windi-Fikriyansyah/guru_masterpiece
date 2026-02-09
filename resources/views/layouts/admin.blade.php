@@ -109,10 +109,7 @@
                 </a>
                 @endif
 
-                <a href="{{ route('admin.video-tutorial') }}" class="sidebar-link {{ request()->routeIs('admin.video-tutorial') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
-                    <i data-lucide="play-circle" class="w-5 h-5"></i>
-                    <span class="font-medium">Video Tutorial</span>
-                </a>
+               
 
                 <a href="{{ route('admin.group-access') }}" class="sidebar-link {{ request()->routeIs('admin.group-access') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="users" class="w-5 h-5"></i>
@@ -125,6 +122,10 @@
                             Akses Grup Komunitas
                         @endif
                     </span>
+                </a>
+                 <a href="{{ route('admin.video-tutorial') }}" class="sidebar-link {{ request()->routeIs('admin.video-tutorial') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
+                    <i data-lucide="play-circle" class="w-5 h-5"></i>
+                    <span class="font-medium">Video Tutorial</span>
                 </a>
                 @endauth
             </nav>

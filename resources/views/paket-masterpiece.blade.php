@@ -84,7 +84,7 @@
                 </div>
             </div>
 
-            <a href="#" class="w-full py-5 bg-white text-dark border-2 border-slate-200 font-black rounded-2xl text-center transition-all hover:bg-slate-50 hover:border-dark">
+            <a href="{{ route('payment.checkout', 'standard') }}" class="w-full py-5 bg-white text-dark border-2 border-slate-200 font-black rounded-2xl text-center transition-all hover:bg-slate-50 hover:border-dark">
                 PILIH PAKET STANDAR
             </a>
         </div>
@@ -172,7 +172,7 @@
                 </div>
             </div>
 
-            <a href="#" class="w-full py-5 bg-primary text-white font-black rounded-2xl text-center transition-all hover:bg-secondary shadow-lg shadow-primary/30">
+            <a href="{{ route('payment.checkout', 'premium') }}" class="w-full py-5 bg-primary text-white font-black rounded-2xl text-center transition-all hover:bg-secondary shadow-lg shadow-primary/30">
                 PILIH PAKET PREMIUM
             </a>
         </div>

@@ -53,4 +53,10 @@ Route::middleware('auth')->group(function () {
     })->name('admin.video-tutorial');
 });
 
+Route::get('/payment/checkout/{package}', [\App\Http\Controllers\Admin\PaymentController::class, 'checkout'])->name('payment.checkout');
+Route::post('/payment/process', [\App\Http\Controllers\Admin\PaymentController::class, 'process'])->name('payment.process');
+Route::get('/payment/success', [\App\Http\Controllers\Admin\PaymentController::class, 'success'])->name('payment.success');
+
+Route::post('/payment/callback', [\App\Http\Controllers\Admin\PaymentController::class, 'callback'])->name('payment.callback');
+
 require __DIR__.'/auth.php';

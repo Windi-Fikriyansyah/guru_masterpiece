@@ -36,7 +36,8 @@ class PresentationController extends Controller
         $request->merge(['kelas_Fase_Semester' => $request->kelas]);
 
         try {
-            $prompt = "Buatkan Kerangka Presentasi (Slide Deck Outline) yang menarik dan edukatif berdasarkan data berikut:
+            $prompt = "Buatkan *Kerangka Presentasi (Slide Deck Outline)* yang menarik, edukatif, dan siap dikembangkan menjadi slide berdasarkan data berikut:
+
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
 Kelas/Fase/Semester: {$request->kelas_Fase_Semester}
@@ -45,9 +46,11 @@ Topik Presentasi: {$request->topik}
 Target Jumlah Slide: {$request->jumlah_slide} slide
 Instruksi/Keinginan Khusus: {$request->instruksi_khusus}
 
-PENTING FORMAT OUTPUT:
-1. Mulai dengan JUDUL PRESENTASI yang Menarik (Heading 1).
-2. Buat tabel identitas singkat (Nama, Kelas, Topik) menggunakan HTML Table (style: border-bottom only) agar rapi secara vertikal.
+PENTING FORMAT OUTPUT (WAJIB DIPATUHI):
+1. Mulai langsung dengan *JUDUL PRESENTASI* yang menarik menggunakan *Heading 1 (# Judul)*.
+   ❌ Jangan menambahkan kalimat pembuka atau basa-basi dari AI.
+
+2. Di bawah judul, buat *tabel identitas singkat* menggunakan HTML berikut (WAJIB sama persis):
 <table style='width: 100%; border: none; margin-bottom: 20px;'>
     <tr>
         <td style='width: 15%; border: none; padding: 5px; font-weight: bold;'>Topik</td>
@@ -60,21 +63,55 @@ PENTING FORMAT OUTPUT:
         <td style='border: none; border-bottom: 1px solid #ddd; padding: 5px;'>{$request->kelas}</td>
     </tr>
 </table>
-3. Sajikan outline materi per slide dengan format berikut:
-Slide 1: [Judul Slide]
--	Visual/Gambar:
-o	Tampilkan gambar secara langsung yang relevan dengan topik/materi slide (bukan hanya deskripsi atau rekomendasi).
-o	Pilih visual yang edukatif, kontekstual, dan mendukung pemahaman materi.
--	Poin-poin Materi Utama:
-o	Sajikan poin-poin materi dalam bentuk bullet points.
-o	Setiap poin wajib disertai penjelasan singkat (1–2 kalimat) yang membantu guru dan murid memahami inti materi.
- - Narasi pembicara (opsional/singkat)
--  Ulangi format ini secara konsisten untuk setiap slide berikutnya.
-   Slide 2: [Judul Slide]
-   ... dan seterusnya sampai Slide {$request->jumlah_slide}.
-4. Pastikan alur materi logis: Pembukaan -> Isi Materi, penjelasan dan gambar-> Contoh/Studi Kasus -> Kesimpulan/Penutup.
-5. Gunakan format Markdown yang rapi. JANGAN ada kalimat pembuka basa-basi.";
 
+3. Sajikan *outline per slide* dengan format KONSISTEN berikut:
+
+*Slide 1: [Judul Slide]*
+- *Visual/Gambar (WAJIB ADA):*
+  - Tampilkan *gambar secara langsung* yang relevan dengan isi slide.
+  - Gambar harus edukatif, kontekstual, dan membantu pemahaman materi (bukan sekadar hiasan).
+
+- *Materi per Poin (WAJIB ADA PENJELASAN):*
+  - Sajikan poin-poin materi dalam bentuk bullet points.
+  - *Setiap poin WAJIB disertai penjelasan singkat (1–2 kalimat)* yang menjelaskan makna, konsep, atau contoh sederhana sesuai jenjang siswa.
+
+- *Narasi Pembicara (opsional):*
+  - Tambahkan catatan singkat untuk guru (jika perlu) sebagai panduan penjelasan lisan.
+
+4. Ulangi format di atas secara konsisten untuk:
+   - Slide 2
+   - Slide 3
+   - ...
+   - Hingga Slide {$request->jumlah_slide}
+
+5. *ALUR MATERI WAJIB LOGIS*, meliputi:
+   - Pembukaan / Apersepsi
+   - Penyampaian konsep inti (dengan gambar)
+   - Penjelasan mendalam & contoh / studi kasus
+   - Ringkasan / kesimpulan / penutup
+
+6. *GAMBAR / VISUAL (WAJIB):*
+   - Setiap slide *HARUS memiliki minimal satu gambar*.
+   - Apapun topik dan bentuk materinya, *gambar tetap harus ada*.
+   - Visual digunakan untuk memperjelas konsep, proses, atau contoh, bukan sekadar dekorasi.
+
+7. *DALIL AL-QUR’AN & HADITS (JIKA MATERI AGAMA ISLAM DAN DIMINTA):*
+   - WAJIB menyertakan *teks ayat Al-Qur’an dan/atau Hadits secara lengkap*.
+   - ❌ Jangan hanya menyebutkan nama surat, nomor ayat, atau nomor hadits.
+   - Sertakan *terjemahan* dan *penjelasan singkat* keterkaitannya dengan materi pada slide.
+   - Dalil dapat digunakan sebagai:
+     - Penguat konsep,
+     - Landasan nilai,
+     - Stimulus diskusi atau refleksi.
+
+8. Gunakan *format Markdown* yang rapi, jelas, dan mudah dibaca.
+   - Heading
+   - Bold
+   - Bullet points
+   - Spasi antar bagian cukup
+
+OUTPUT AKHIR:
+Kerangka presentasi yang *lengkap per slide, memiliki **materi per poin dengan penjelasan, **kaya visual, alur logis, dan siap dikembangkan menjadi **slide presentasi profesional untuk pembelajaran*.";
             $result = $this->aiService->generateContent($prompt);
 
             if ($result) {

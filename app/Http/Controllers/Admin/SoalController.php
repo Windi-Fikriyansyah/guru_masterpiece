@@ -39,7 +39,8 @@ class SoalController extends Controller
         $request->merge(['kelas_fase_semester' => $request->kelas]);
 
         try {
-            $prompt = "Buatkan Soal dengan format yang rapi dan siap cetak berdasarkan kriteria berikut:
+            $prompt = "Buatkan SOAL pembelajaran dengan format yang rapi, sistematis, dan siap cetak berdasarkan kriteria berikut:
+
 Kurikulum: {$request->kurikulum}
 Jenjang: {$request->jenjang}
 Kelas/Fase/Semester: {$request->kelas_fase_semester}
@@ -48,15 +49,18 @@ Topik/Bab: {$request->topik}
 Bentuk Soal: {$request->bentuk_soal}
 Jumlah Soal: {$request->jumlah_soal} butir
 Taksonomi Bloom: {$request->taksonomi}
+Taksonomi SOLO: {$request->taksonomi}
 Tingkat Kesulitan: {$request->kesulitan}
 Instruksi/Keinginan Khusus: {$request->instruksi_khusus}
 
 Materi Tambahan (Referensi):
 " . ($request->materi ?? 'Tidak ada materi spesifik, gunakan pengetahuan umum sesuai kurikulum.') . "
 
-PENTING FORMAT OUTPUT:
-1. Mulai dengan JUDUL TOPIK (Heading 1).
-2. Buat tabel identitas siswa (Nama, Kelas, Hari/Tanggal/Tahun) menggunakan HTML Table (style: border-bottom only) agar rapi secara vertikal.
+PENTING FORMAT OUTPUT (WAJIB DIPATUHI):
+1. Mulai langsung dengan *JUDUL TOPIK* menggunakan Heading 1 (# Judul).
+   ❌ Jangan menambahkan kalimat pembuka atau basa-basi apa pun.
+
+2. Buat *tabel identitas siswa* menggunakan HTML berikut (WAJIB sama persis):
 <table style='width: 100%; border: none; margin-bottom: 20px;'>
     <tr>
         <td style='width: 15%; border: none; padding: 5px; font-weight: bold;'>Nama</td>
@@ -69,21 +73,68 @@ PENTING FORMAT OUTPUT:
         <td style='border: none; border-bottom: 1px solid #ddd; padding: 5px;'>{$request->kelas}</td>
     </tr>
 </table>
-3. Sajikan soal dengan penomoran yang jelas dan gambar yang sesuai dengan materi pada setiap soal (jika relevan).
+
+3. Sajikan soal dengan *penomoran jelas, jarak antar soal rapi, dan **gambar yang relevan pada setiap soal*.
+   ⚠️ Apapun bentuk dan topik soal, *GAMBAR WAJIB ADA*.
+
 4. KHUSUS SOAL PILIHAN GANDA:
--Tampilkan gambar yang jelas dan relevan dengan konteks soal (bukan hanya deskripsi gambar).
--	Jika soal membutuhkan visual, gambar WAJIB ditampilkan langsung bersama soal.
--	Opsi jawaban HARUS menggunakan format LIST MARKDOWN (tanda strip -) dengan susunan berikut:
-1. [Teks Pertanyaan]
-   [Tampilkan gambar yang relevan dengan soal]
-   - A. Pilihan jawaban pertama
-   - B. Pilihan jawaban kedua
-   - C. Pilihan jawaban ketiga
-   - D. Pilihan jawaban keempat
-   - E. Pilihan jawaban kelima (jika diperlukan)
-   5. Kunci jawaban diletakkan TERPISAH (halaman baru atau paling bawah) with judul \"KUNCI JAWABAN\".
-6. Sesuaikan kompleksitas soal dengan Taksonomi Bloom ({$request->taksonomi}) and Tingkat Kesulitan ({$request->kesulitan}).
-7. Gunakan format Markdown yang rapi, berikan jarak antar nomor soal. JANGAN ada kalimat pembuka basa-basi.";
+   - Setiap soal *WAJIB menampilkan gambar* yang relevan secara langsung.
+   - Opsi jawaban HARUS menggunakan format LIST MARKDOWN:
+   
+   Contoh format:
+   1. [Teks Pertanyaan]
+      [Tampilkan gambar yang relevan dengan soal]
+      - A. Pilihan jawaban pertama
+      - B. Pilihan jawaban kedua
+      - C. Pilihan jawaban ketiga
+      - D. Pilihan jawaban keempat
+      - E. Pilihan jawaban kelima (jika diperlukan)
+
+5. *KUNCI JAWABAN*:
+   - Diletakkan TERPISAH di bagian akhir.
+   - Gunakan Heading *## KUNCI JAWABAN*.
+   - Sertakan pembahasan singkat jika sesuai tingkat kesulitan.
+
+6. *GAMBAR / VISUAL (WAJIB):*
+   - Setiap soal minimal memiliki satu gambar.
+   - Gambar harus relevan dengan materi dan membantu pemahaman atau analisis soal.
+   - Bukan sekadar dekorasi.
+
+7. *DALIL AL-QUR’AN & HADITS (JIKA MATERI AGAMA ISLAM DAN DIMINTA):*
+   - WAJIB menyertakan *teks ayat Al-Qur’an dan/atau Hadits secara lengkap*.
+   - ❌ Jangan hanya menuliskan nama surat, nomor ayat, atau nomor hadits.
+   - Sertakan *terjemahan* dan keterkaitan dalil dengan soal.
+   - Dalil dapat dijadikan stimulus soal, bahan analisis, atau konteks soal HOTS.
+
+8. *LEVEL KOGNITIF WAJIB DISESUAIKAN DENGAN:*
+   a. *Taksonomi Bloom ({$request->taksonomi})*
+      - Mengingat, Memahami, Menerapkan
+      - Menganalisis, Mengevaluasi, Mencipta
+      - HOTS jika diminta
+
+   b. *Taksonomi SOLO ({$request->taksonomi})*
+      Gunakan *kata kerja operasional* berikut sesuai level:
+
+      - *Uni-struktural*:
+        Menghafal, mengidentifikasi, mengenali, menyebutkan, mencocokkan, mendefinisikan, mengingat, menulis, meniru.
+
+      - *Multi-struktural*:
+        Menjelaskan, mengklasifikasikan, mendaftar, mendiskusikan, mengurutkan, menghitung, melaporkan.
+
+      - *Relasional*:
+        Menganalisis, membandingkan, mengontraskan, menyimpulkan, menerapkan, memecahkan masalah, memprediksi, merangkum, menilai.
+
+      - *Abstrak Meluas*:
+        Menggeneralisasi, berhipotesis, menciptakan, merancang, merefleksikan, membuktikan dengan prinsip dasar, membuat solusi orisinal.
+
+9. Pastikan:
+   - Bentuk soal, stimulus, dan tuntutan jawaban *selaras dengan level Bloom & SOLO*.
+   - Tingkat kesulitan ({$request->kesulitan}) tercermin dari kompleksitas berpikir, bukan sekadar panjang soal.
+
+10. Gunakan *format Markdown* yang rapi, konsisten, dan siap cetak.
+
+OUTPUT AKHIR:
+Soal yang *lengkap, berkualitas tinggi, kaya visual, terkontrol secara kognitif (Bloom & SOLO), siap cetak*, dan dapat langsung digunakan guru.";
 
             $result = $this->aiService->generateContent($prompt);
 

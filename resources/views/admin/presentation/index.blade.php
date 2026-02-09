@@ -236,7 +236,7 @@
             <div class="pt-6">
                 <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
                     <i data-lucide="wand-2" class="w-6 h-6"></i>
-                    Generate Kerangka
+                    Hasilkan Sekarang
                 </button>
             </div>
         </form>
@@ -256,7 +256,7 @@
                 <i data-lucide="monitor-play" class="w-10 h-10"></i>
             </div>
             <h4 class="text-xl font-bold text-slate-400 mb-2">Belum Ada Kerangka</h4>
-            <p class="text-slate-400 max-w-sm">Isi parameter di atas dan klik tombol generate untuk membuat kerangka presentasi Anda.</p>
+            <p class="text-slate-400 max-w-sm">Isi parameter di atas dan klik tombol Hasilkan Sekarang untuk membuat kerangka presentasi Anda.</p>
         </div>
 
         <!-- Loading State -->

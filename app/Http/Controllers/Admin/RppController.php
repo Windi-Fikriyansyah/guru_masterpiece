@@ -42,8 +42,9 @@ class RppController extends Controller
         ]);
 
         try {
-            $prompt = <<<PROMPT
-Buatkan Perencanaan Pembelajaran (Modul Ajar Pebelajaran Mendalam) dengan format resmi Kurikulum Merdeka Belajar untuk:
+            $prompt = $prompt = <<<PROMPT
+Buatkan *Perencanaan Pembelajaran (Modul Ajar Pembelajaran Mendalam)* dengan format resmi *Kurikulum Merdeka Belajar, bahasa formal, sistematis, dan siap digunakan sebagai **dokumen resmi sekolah*, berdasarkan data berikut:
+
 - Nama Sekolah: {$request->nama_sekolah}
 - Nama Guru: {$request->nama_guru}
 - Jenjang: {$request->jenjang}
@@ -56,25 +57,36 @@ Buatkan Perencanaan Pembelajaran (Modul Ajar Pebelajaran Mendalam) dengan format
 - Tujuan Pembelajaran: {$request->tujuan}
 - Instruksi Khusus: {$request->instruksi}
 
-Gunakan struktur Modul Ajar Pembelajaran Mendalam - Format Resmi Kurikulum Merdeka (Susun Perencanaan Pembelajaran Mendalam sesuai Kurikulum Merdeka dengan bahasa formal, sistematis, dan siap digunakan sebagai dokumen resmi sekolah. Gunakan format dan urutan berikut secara konsisten)
+Gunakan struktur *Modul Ajar Pembelajaran Mendalam – Format Resmi Kurikulum Merdeka* berikut dan *WAJIB mengikuti urutan serta formatnya secara konsisten*.
 
+==================================================
 PERENCANAAN PEMBELAJARAN MENDALAM
+==================================================
 
 A. INFORMASI UMUM
-- Nama sekolah [isi]
-- Nama guru [isi]
-- Jenjang [isi]
-- Fase/kelas/semester [isi]
-- Mata pelajaran [isi]
-- Topik [isi]
-- Alokasi waktu [isi]
-- Model pembelajaran [isi]
-- Pendekatan [isi]
-- Tujuan pembelajaran [isi] (Tuliskan tujuan pembelajaran yang mencakup kompetensi dan konten sesuai capaian pembelajaran, menggunakan kata kerja operasional yang terukur)
-B. IDENTIFIKASI:
-1. Kesiapan materi (buatkan kesiapan materinya)
-2. karakteristik murid (buatkan kesiapan muridnya)
-3. Menentukan dimensi profil lulusan. Sajikan dalam bentuk TABEL Markdown dengan format berikut:
+- Nama sekolah: {$request->nama_sekolah}
+- Nama guru: {$request->nama_guru}
+- Jenjang: {$request->jenjang}
+- Fase/Kelas/Semester: {$request->kelas} / {$request->semester}
+- Mata pelajaran: {$request->mapel}
+- Topik: {$request->topik}
+- Alokasi waktu: {$request->waktu}
+- Model pembelajaran: {$request->model}
+- Pendekatan: {$request->pendekatan}
+- Tujuan pembelajaran:
+  (Tuliskan tujuan pembelajaran yang mencakup *kompetensi dan konten* sesuai Capaian Pembelajaran, menggunakan *kata kerja operasional yang terukur*)
+
+B. IDENTIFIKASI
+1. *Kesiapan Materi*
+   - Uraikan kesiapan materi pembelajaran sesuai topik dan capaian pembelajaran.
+   - Sertakan *visual/gambar pembelajaran* yang relevan untuk membantu pemahaman konsep (WAJIB ADA).
+
+2. *Karakteristik Murid*
+   - Uraikan kesiapan dan karakteristik murid (minat, gaya belajar, kemampuan awal).
+   - Sertakan contoh pendekatan diferensiasi jika diperlukan.
+
+3. *Dimensi Profil Lulusan*
+   Sajikan dalam bentuk *TABEL Markdown* berikut (WAJIB sama persis, JANGAN dicentang):
 
 | No | Dimensi Profil Lulusan | Kode | Centang |
 |----|------------------------|------|---------|
@@ -87,30 +99,69 @@ B. IDENTIFIKASI:
 | 7 | Kesehatan | DPL7 | ☐ |
 | 8 | Komunikasi | DPL8 | ☐ |
 
-(PENTING: Biarkan SEMUA kotak ☐ tetap kosong tanpa centang. JANGAN ubah atau centang kotak apapun. Guru akan mencentang sendiri secara manual.)
-C. DESAIN PEMBELAJARAN:
-1. Tujuan pembelajaran (sesuaikan tujuan yang sudah ditulis pada bagian A.Informasi umum)
-2. kerangka pembelajaran: 
-       a. praktik pedagogis
-       b. kemitraan pembelajaran
-       c. lingkungan pembelajaran 
-       d. pemanfaatan digital
-D. PENGALAMAN BELAJAR: 
-Langkah-langkah Pembelajaran dengan prinsip berkesadaran, bermakna, menggembirakan dan Mendeskripsikan pengalaman belajar memahami, mengaplikasi, dan merefleksi. Terdiri dari:
-1. Kegiatan Pendahuluan (Sebutkan jumlah menit dan prinsip yang digunakan)
-2. Kegiatan Inti (Sebutkan jumlah menit dan prinsip yang digunakan)
-3. Kegiatan Penutup (Sebutkan jumlah menit dan prinsip yang digunakan)
-E. ASESMEN PEMBELAJARAN: Buatkan asesmen:
-1. Asesmen pada awal pembelajaran (as learning)
-2. Asesmen pada proses pembelajaran (for learning)
-3. Asesmen pada akhir pembelajaran (of learning)
+(PENTING: *Biarkan semua kotak tetap kosong*. Guru akan mencentang secara manual.)
 
-Instruksi/ketentuan Tambahan:
-- Terapkan pembelajaran mendalam dengan prinsip berkesadaran, bermakna, dan menggembirakan.
-- Selaraskan dengan Dimensi Profil Lulusan serta sertakan penjelasan langkah-langkah pembelajarannya.
-- Sajikan semua dalam bentuk TABEL yang rapi dan siap digunakan dalam format Markdown.
-- JANGAN berikan kata pembuka atau penutup seperti "Berikut adalah..." atau "Semoga bermanfaat". Langsung berikan isi dan penjelasan Modul Ajar.
-- Akhiri dokumen dengan format tanda tangan dua kolom seperti berikut (dalam bentuk tabel Markdown tanpa border):
+C. DESAIN PEMBELAJARAN
+1. *Tujuan Pembelajaran*
+   - Selaraskan dengan tujuan pada bagian A.
+
+2. *Kerangka Pembelajaran*
+   Sajikan dalam bentuk tabel Markdown yang rapi:
+   a. Praktik pedagogis  
+   b. Kemitraan pembelajaran  
+   c. Lingkungan pembelajaran  
+   d. Pemanfaatan digital  
+   - Sertakan *contoh aktivitas + gambar pendukung* yang relevan (WAJIB ADA).
+
+D. PENGALAMAN BELAJAR
+Susun langkah-langkah pembelajaran dengan prinsip *berkesadaran, bermakna, dan menggembirakan, serta mendeskripsikan pengalaman belajar **memahami – mengaplikasi – merefleksi*.
+
+Sajikan dalam *TABEL Markdown* yang memuat:
+1. *Kegiatan Pendahuluan*
+   - Alokasi waktu (menit)
+   - Prinsip pembelajaran
+   - Aktivitas guru & murid
+   - *Gambar/visual apersepsi* (WAJIB ADA)
+
+2. *Kegiatan Inti*
+   - Alokasi waktu (menit)
+   - Prinsip pembelajaran
+   - Aktivitas memahami, mengaplikasi, dan refleksi
+   - *Gambar/visual materi inti* (WAJIB ADA)
+
+3. *Kegiatan Penutup*
+   - Alokasi waktu (menit)
+   - Prinsip pembelajaran
+   - Refleksi dan tindak lanjut
+   - *Gambar/visual penutup* (WAJIB ADA)
+
+E. ASESMEN PEMBELAJARAN
+Buatkan asesmen lengkap dalam *TABEL Markdown*:
+1. *Asesmen Awal (Assessment as Learning)*
+2. *Asesmen Proses (Assessment for Learning)*
+3. *Asesmen Akhir (Assessment of Learning)*
+- Sertakan teknik, instrumen, dan kriteria penilaian.
+- Tambahkan *visual pendukung jika relevan* (WAJIB ADA minimal satu).
+
+==================================================
+KETENTUAN TAMBAHAN (WAJIB DIPATUHI):
+==================================================
+1. *GAMBAR / VISUAL WAJIB ADA*
+   - Apapun mata pelajaran dan topiknya, *gambar harus ditampilkan langsung* di dalam modul.
+   - Visual digunakan untuk memperjelas konsep, proses, atau pengalaman belajar (bukan hiasan).
+
+2. *KHUSUS MAPEL PENDIDIKAN AGAMA ISLAM (JIKA DIMINTA DALIL):*
+   - WAJIB menyertakan *teks ayat Al-Qur’an dan/atau Hadits secara lengkap*.
+   - ❌ Jangan hanya menyebutkan nama surat, nomor ayat, atau nomor hadits.
+   - Sertakan *terjemahan* dan *penjelasan keterkaitan dalil dengan tujuan dan aktivitas pembelajaran*.
+   - Dalil ditempatkan secara kontekstual (tujuan, pengalaman belajar, atau refleksi).
+
+3. Gunakan *format Markdown* secara konsisten (Heading, Bold, Tabel).
+4. *JANGAN* menambahkan kata pembuka atau penutup seperti “Berikut adalah…” atau “Semoga bermanfaat”.
+
+==================================================
+TANDA TANGAN
+==================================================
 
 | Mengetahui, | {$request->bulan_tahun} |
 |---|---|

@@ -67,10 +67,21 @@
                     <i data-lucide="grid" class="w-5 h-5"></i>
                     <span class="font-medium">Dashboard</span>
                 </a>
+
+                <a href="{{ route('paket-masterpiece') }}" class="sidebar-link {{ request()->routeIs('paket-masterpiece') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 {{ request()->routeIs('paket-masterpiece') ? '' : 'text-slate-500 hover:text-primary hover:bg-slate-50' }} rounded-xl transition-all duration-200">
+                    <i data-lucide="package" class="w-5 h-5"></i>
+                    <span class="font-medium">Paket Masterpiece</span>
+                </a>
+
+                @auth
+                @if(in_array(Auth::user()->package, ['standard', 'premium']))
                 <a href="{{ route('admin.rpp') }}" class="sidebar-link {{ request()->routeIs('admin.rpp') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="book-open" class="w-5 h-5"></i>
                     <span class="font-medium">RPM/RPP/Modul Ajar</span>
                 </a>
+                @endif
+
+                @if(Auth::user()->package === 'premium')
                 <a href="{{ route('admin.lkpd') }}" class="sidebar-link {{ request()->routeIs('admin.lkpd') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="edit-3" class="w-5 h-5"></i>
                     <span class="font-medium">LKPD/LKM</span>
@@ -92,14 +103,30 @@
                     <i data-lucide="clipboard-check" class="w-5 h-5"></i>
                     <span class="font-medium">Rubrik Penilaian</span>
                 </a>
-                <!-- <a href="{{ route('admin.ice_breaking') }}" class="sidebar-link {{ request()->routeIs('admin.ice_breaking') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
-                    <i data-lucide="zap" class="w-5 h-5"></i>
-                    <span class="font-medium">Ice Breaking</span>
-                </a> -->
                 <a href="{{ route('admin.curhat') }}" class="sidebar-link {{ request()->routeIs('admin.curhat') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
                     <i data-lucide="heart" class="w-5 h-5"></i>
                     <span class="font-medium">Refleksi Guru</span>
                 </a>
+                @endif
+
+                <a href="{{ route('admin.video-tutorial') }}" class="sidebar-link {{ request()->routeIs('admin.video-tutorial') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
+                    <i data-lucide="play-circle" class="w-5 h-5"></i>
+                    <span class="font-medium">Video Tutorial</span>
+                </a>
+
+                <a href="{{ route('admin.group-access') }}" class="sidebar-link {{ request()->routeIs('admin.group-access') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-primary hover:bg-slate-50 rounded-xl transition-all duration-200">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span class="font-medium">
+                        @if(Auth::user()->package === 'premium')
+                            Akses Grup Premium
+                        @elseif(Auth::user()->package === 'standard')
+                            Akses Link Grup Eksklusif
+                        @else
+                            Akses Grup Komunitas
+                        @endif
+                    </span>
+                </a>
+                @endauth
             </nav>
 
             <div class="p-4 mt-auto">
@@ -111,6 +138,7 @@
                     </div>
                 </div>
                 
+                @auth
                 <form method="POST" action="{{ route('logout') }}" class="mt-4">
                     @csrf
                     <button type="submit" class="w-full flex items-center justify-center gap-2 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl transition-all duration-200">
@@ -118,6 +146,12 @@
                         <span class="font-medium">Sign Out</span>
                     </button>
                 </form>
+                @else
+                <a href="{{ route('login') }}" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white hover:bg-secondary rounded-xl transition-all duration-200 mt-4 shadow-md">
+                    <i data-lucide="log-in" class="w-5 h-5"></i>
+                    <span class="font-medium">Sign In</span>
+                </a>
+                @endauth
             </div>
         </aside>
 
@@ -141,6 +175,7 @@
                         <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
                     </button>
                     <div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+                    @auth
                     <div class="flex items-center gap-3">
                         <div class="text-right hidden sm:block">
                             <p class="text-sm font-semibold text-dark line-clamp-1">{{ Auth::user()->name }}</p>
@@ -150,6 +185,14 @@
                             <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=fff&color=6366f1" class="w-full h-full rounded-full border-2 border-white object-cover" alt="Avatar">
                         </div>
                     </div>
+                    @else
+                    <div class="flex items-center gap-3">
+                        <a href="{{ route('login') }}" class="text-sm font-bold text-primary hover:text-secondary px-4 py-2 rounded-lg border border-primary/20 hover:bg-primary/5 transition-all">
+                            Masuk
+                        </a>
+                        
+                    </div>
+                    @endauth
                 </div>
             </header>
 

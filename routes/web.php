@@ -4,12 +4,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
+
+Route::get('/paket-masterpiece', function () {
+    return view('paket-masterpiece');
+})->name('paket-masterpiece');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -39,6 +43,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/curhat', [\App\Http\Controllers\Admin\CurhatController::class, 'index'])->name('admin.curhat');
     Route::post('/curhat/generate', [\App\Http\Controllers\Admin\CurhatController::class, 'generate'])->name('admin.curhat.generate');
+
+    Route::get('/akses-grup', function () {
+        return view('admin.group-access');
+    })->name('admin.group-access');
+
+    Route::get('/video-tutorial', function () {
+        return view('admin.video-tutorial');
+    })->name('admin.video-tutorial');
 });
 
 require __DIR__.'/auth.php';

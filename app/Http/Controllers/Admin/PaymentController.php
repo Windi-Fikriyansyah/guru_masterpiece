@@ -187,6 +187,9 @@ class PaymentController extends Controller
                         $message .= "🔑 Password: (Gunakan password yang sudah Anda buat sebelumnya)\n";
                     }
                     
+                    $message .= "\n🎁 *Kode Referral Anda:* `{$user->referral_code}`\n";
+                    $message .= "_Bagikan kode ini ke teman guru lainnya!_\n";
+                    
                     $message .= "\n🔗 Login di: " . url('/login') . "\n\n";
                     $message .= "Selamat berkarya dengan asisten AI terhebat untuk guru!";
                     

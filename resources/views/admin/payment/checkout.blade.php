@@ -87,9 +87,9 @@
                     <div class="space-y-8">
                         @php
                             $groups = [
-                                'Virtual Account' => ['VA'],
-                                'E-Wallet' => ['EWALLET'],
-                                'Convenience Store' => ['CS'],
+                                'Virtual Account' => ['Virtual Account'],
+                                'E-Wallet' => ['E-Wallet'],
+                                'Convenience Store' => ['Convenience Store'],
                             ];
                         @endphp
 

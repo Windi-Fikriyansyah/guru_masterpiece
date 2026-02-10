@@ -22,17 +22,33 @@ class TripayService
             : 'https://tripay.co.id/api-sandbox/';
     }
 
+    /**
+     * Base HTTP client with common config
+     */
+    private function httpClient()
+    {
+        return Http::withToken($this->apiKey)
+            ->withoutVerifying()
+            ->withHeaders([
+                'User-Agent' => 'GuruMasterpiece/1.0',
+            ]);
+    }
+
     public function getPaymentChannels()
     {
         try {
-            $response = Http::withToken($this->apiKey)
-                ->get($this->baseUrl . 'merchant/payment-channels');
+            $url = $this->baseUrl . 'merchant/payment-channel';
+            Log::info('Tripay requesting: ' . $url);
+
+            $response = $this->httpClient()->get($url);
+
+            Log::info('Tripay response status: ' . $response->status());
 
             if ($response->successful()) {
                 return $response->json()['data'];
             }
 
-            Log::error('Tripay getPaymentChannels error: ' . $response->body());
+            Log::error('Tripay getPaymentChannels error [' . $response->status() . ']: ' . $response->body());
             return [];
         } catch (\Exception $e) {
             Log::error('Tripay getPaymentChannels exception: ' . $e->getMessage());
@@ -59,7 +75,7 @@ class TripayService
         ];
 
         try {
-            $response = Http::withToken($this->apiKey)
+            $response = $this->httpClient()
                 ->post($this->baseUrl . 'transaction/create', $payload);
 
             if ($response->successful()) {

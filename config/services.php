@@ -50,4 +50,8 @@ return [
         'mode' => env('TRIPAY_MODE', 'sandbox'),
     ],
 
+    'fonnte' => [
+        'token' => env('FONNTE_TOKEN'),
+    ],
+
 ];

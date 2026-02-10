@@ -47,11 +47,7 @@
             <div class="bg-white rounded-[2rem] p-8 lg:p-12 shadow-xl shadow-slate-200/50 border border-slate-100">
                 <h3 class="text-2xl font-black text-dark mb-8">Pilih Metode Pembayaran</h3>
 
-                @if(session('error'))
-                    <div class="bg-red-50 text-red-600 p-4 rounded-xl mb-8 border border-red-100 text-sm font-medium">
-                        {{ session('error') }}
-                    </div>
-                @endif
+
 
                 <form action="{{ route('payment.process') }}" method="POST">
                     @csrf

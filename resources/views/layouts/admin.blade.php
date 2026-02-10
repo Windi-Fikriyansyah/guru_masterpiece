@@ -15,6 +15,7 @@
     <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <script>
         tailwind.config = {
@@ -202,6 +203,58 @@
                 @yield('content')
             </div>
         </main>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div x-data="{ 
+            show: false, 
+            message: '', 
+            type: 'success',
+            init() {
+                @if(session('success'))
+                    this.showToast('{{ session('success') }}', 'success');
+                @endif
+                @if(session('error'))
+                    this.showToast('{{ session('error') }}', 'error');
+                @endif
+            },
+            showToast(msg, type) {
+                this.message = msg;
+                this.type = type;
+                this.show = true;
+                setTimeout(() => { 
+                    lucide.createIcons();
+                }, 10);
+                setTimeout(() => { this.show = false }, 5000);
+            }
+        }"
+        x-show="show"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:translate-x-4"
+        x-transition:enter-end="opacity-100 translate-y-0 sm:translate-x-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed top-24 right-6 z-[9999] max-w-sm w-full bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border-l-4 p-4 flex items-start gap-4"
+        :class="type === 'success' ? 'border-emerald-500' : 'border-red-500'"
+        style="display: none;"
+    >
+        <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center shadow-sm"
+            :class="type === 'success' ? 'bg-emerald-50 text-emerald-500' : 'bg-red-50 text-red-500'">
+            <div x-show="type === 'success'">
+                <i data-lucide="check-circle" class="w-6 h-6"></i>
+            </div>
+            <div x-show="type !== 'success'">
+                <i data-lucide="alert-circle" class="w-6 h-6"></i>
+            </div>
+        </div>
+        <div class="flex-1 min-w-0">
+            <h4 class="font-bold text-dark text-sm" x-text="type === 'success' ? 'Berhasil' : 'Opps!'"></h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed break-words" x-text="message"></p>
+        </div>
+        <button @click="show = false" class="text-slate-400 hover:text-dark transition-colors p-1">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
     </div>
 
     <script>

@@ -82,11 +82,35 @@ class PaymentController extends Controller
 
         if (Auth::check()) {
             $user = Auth::user();
+            
+            // SECURITY: Trust only backend status. If already paid, block payment.
+            if ($user->package !== 'basic') {
+                return back()->with('error', 'Akun Anda sudah memiliki paket aktif (' . strtoupper($user->package) . '). Tidak dapat melakukan pembayaran baru.');
+            }
         } else {
-            $user = User::where('email', $request->email)->first();
             $waNumber = WhatsappService::normalizeNumber($request->whatsapp);
             
-            if (!$user) {
+            // SECURITY: Trust only backend data. Check if email or WhatsApp already exists and has paid.
+            $existingUser = User::where('email', $request->email)
+                               ->orWhere('whatsapp', $waNumber)
+                               ->first();
+            
+            if ($existingUser) {
+                // If user exists and has a paid package, block payment.
+                if ($existingUser->package !== 'basic') {
+                    return back()->with('error', 'Email atau nomor WhatsApp ini sudah terdaftar dengan paket aktif. Silakan login untuk menggunakan layanan atau hubungi admin.');
+                }
+                
+                // If user exists but still basic, allow them to continue (retrying payment).
+                // REGENERATE password so the one sent via WA remains valid and synchronized.
+                $tempPassword = 'Guru' . rand(100, 999);
+                $user = $existingUser;
+                $user->update([
+                    'name' => $request->name,
+                    'whatsapp' => $waNumber,
+                    'password' => Hash::make($tempPassword)
+                ]);
+            } else {
                 // Generate a friendly readable temporary password
                 $tempPassword = 'Guru' . rand(100, 999);
                 
@@ -97,9 +121,6 @@ class PaymentController extends Controller
                     'password' => Hash::make($tempPassword),
                     'package' => 'basic'
                 ]);
-            } else {
-                // Update WA for existing user if provided
-                $user->update(['whatsapp' => $waNumber]);
             }
         }
 
@@ -146,7 +167,20 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-        return view('admin.payment.success');
+        $reference = $request->reference;
+        $transaction = null;
+
+        if ($reference) {
+            $transaction = Transaction::where('reference', $reference)->first();
+        } elseif (Auth::check()) {
+            $transaction = Transaction::where('user_id', Auth::id())->latest()->first();
+        }
+
+        if (!$transaction) {
+            return redirect()->route('dashboard');
+        }
+
+        return view('admin.payment.success', compact('transaction'));
     }
 
     public function callback(Request $request)
@@ -161,13 +195,22 @@ class PaymentController extends Controller
 
         $data = json_decode($json);
         $merchantRef = $data->merchant_ref;
-        $status = $data->status;
+        $status = strtoupper($data->status); // Normalize to uppercase
 
-        if ($status === 'PAID') {
-            $transaction = Transaction::where('merchant_ref', $merchantRef)->first();
-            if ($transaction && $transaction->status !== 'PAID') {
-                $transaction->update(['status' => 'PAID']);
-                
+        Log::info("TriPay Callback Received: {$merchantRef} with status {$status}");
+
+        $transaction = Transaction::where('merchant_ref', $merchantRef)->first();
+        if (!$transaction) {
+            Log::error("TriPay Callback Error: Transaction {$merchantRef} not found");
+            return response()->json(['success' => false, 'message' => 'Transaction not found']);
+        }
+
+        // Only process if status is different to avoid double processing
+        if ($transaction->status !== $status) {
+            Log::info("Updating Transaction {$merchantRef} status from {$transaction->status} to {$status}");
+            $transaction->update(['status' => $status]);
+
+            if ($status === 'PAID') {
                 $user = $transaction->user;
                 $user->update(['package' => $transaction->package]);
                 
@@ -197,6 +240,8 @@ class PaymentController extends Controller
                 }
                 
                 Log::info("Payment Success & WA Sent: User {$user->email}");
+            } else {
+                Log::info("Payment Status Update: {$merchantRef} to {$status}");
             }
         }
 

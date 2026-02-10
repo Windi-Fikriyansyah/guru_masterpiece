@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/video-tutorial', function () {
         return view('admin.video-tutorial');
     })->name('admin.video-tutorial');
+
+    Route::get('/referral', [\App\Http\Controllers\Admin\ReferralController::class, 'index'])->name('admin.referral');
 });
 
 Route::get('/payment/checkout/{package}', [\App\Http\Controllers\Admin\PaymentController::class, 'checkout'])->name('payment.checkout');

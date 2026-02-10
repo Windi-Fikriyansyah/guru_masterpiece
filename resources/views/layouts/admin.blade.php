@@ -128,6 +128,10 @@
                     <i data-lucide="play-circle" class="w-5 h-5"></i>
                     <span class="font-medium">Video Tutorial</span>
                 </a>
+                <a href="{{ route('admin.referral') }}" class="sidebar-link {{ request()->routeIs('admin.referral') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.referral') ? '' : 'text-slate-500 hover:text-primary hover:bg-slate-50' }} rounded-xl transition-all duration-200">
+                    <i data-lucide="share-2" class="w-5 h-5"></i>
+                    <span class="font-medium">Referral & Bonus</span>
+                </a>
                 @endauth
             </nav>
 
@@ -181,7 +185,7 @@
                     <div class="flex items-center gap-3">
                         <div class="text-right hidden sm:block">
                             <p class="text-sm font-semibold text-dark line-clamp-1">{{ Auth::user()->name }}</p>
-                            <p class="text-xs text-slate-400 font-medium">Administrator</p>
+                            
                         </div>
                         <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-accent p-[2px]">
                             <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=fff&color=6366f1" class="w-full h-full rounded-full border-2 border-white object-cover" alt="Avatar">

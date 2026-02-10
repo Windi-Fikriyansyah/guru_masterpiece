@@ -9,6 +9,7 @@ use App\Services\TripayService;
 use App\Services\WhatsappService;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\ReferralEarning;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
@@ -80,12 +81,26 @@ class PaymentController extends Controller
         $activePackage = $packages[$packageId];
         $tempPassword = null;
 
+        // Handle Referral from Cookie (Global)
+        $referrerId = null;
+        if ($request->hasCookie('referred_by')) {
+            $referrer = User::where('referral_code', $request->cookie('referred_by'))->first();
+            if ($referrer) {
+                $referrerId = $referrer->id;
+            }
+        }
+
         if (Auth::check()) {
             $user = Auth::user();
             
             // SECURITY: Trust only backend status. If already paid, block payment.
             if ($user->package !== 'basic') {
                 return back()->with('error', 'Akun Anda sudah memiliki paket aktif (' . strtoupper($user->package) . '). Tidak dapat melakukan pembayaran baru.');
+            }
+
+            // If logged in user doesn't have a referrer yet, assign one from cookie
+            if (!$user->referred_by_id && $referrerId && $user->id !== $referrerId) {
+                $user->update(['referred_by_id' => $referrerId]);
             }
         } else {
             $waNumber = WhatsappService::normalizeNumber($request->whatsapp);
@@ -105,11 +120,19 @@ class PaymentController extends Controller
                 // REGENERATE password so the one sent via WA remains valid and synchronized.
                 $tempPassword = 'Guru' . rand(100, 999);
                 $user = $existingUser;
-                $user->update([
+                
+                $updateData = [
                     'name' => $request->name,
                     'whatsapp' => $waNumber,
                     'password' => Hash::make($tempPassword)
-                ]);
+                ];
+
+                // If user doesn't have a referrer yet, assign one if available
+                if (!$user->referred_by_id && $referrerId && $user->id !== $referrerId) {
+                    $updateData['referred_by_id'] = $referrerId;
+                }
+
+                $user->update($updateData);
             } else {
                 // Generate a friendly readable temporary password
                 $tempPassword = 'Guru' . rand(100, 999);
@@ -119,7 +142,8 @@ class PaymentController extends Controller
                     'email' => $request->email,
                     'whatsapp' => $waNumber,
                     'password' => Hash::make($tempPassword),
-                    'package' => 'basic'
+                    'package' => 'basic',
+                    'referred_by_id' => $referrerId
                 ]);
             }
         }
@@ -213,6 +237,29 @@ class PaymentController extends Controller
             if ($status === 'PAID') {
                 $user = $transaction->user;
                 $user->update(['package' => $transaction->package]);
+
+                // Handle Referral Earning (10%)
+                if ($user->referred_by_id) {
+                    $referrer = User::find($user->referred_by_id);
+                    if ($referrer) {
+                        $percent = 10;
+                        $earningAmount = $transaction->amount * ($percent / 100);
+                        
+                        // Create Earning Record
+                        ReferralEarning::create([
+                            'referrer_id' => $referrer->id,
+                            'referee_id' => $user->id,
+                            'transaction_id' => $transaction->id,
+                            'amount' => $earningAmount,
+                            'percent' => $percent,
+                        ]);
+                        
+                        // Update Referrer Balance
+                        $referrer->increment('referral_balance', $earningAmount);
+                        
+                        Log::info("Referral Earning Processed: Referrer {$referrer->email} earned {$earningAmount} from {$user->email}");
+                    }
+                }
                 
                 // Send WhatsApp Notification
                 if ($user->whatsapp) {

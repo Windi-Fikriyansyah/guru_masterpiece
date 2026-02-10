@@ -25,6 +25,8 @@ class User extends Authenticatable
         'package',
         'whatsapp',
         'referral_code',
+        'referred_by_id',
+        'referral_balance',
     ];
 
     /**

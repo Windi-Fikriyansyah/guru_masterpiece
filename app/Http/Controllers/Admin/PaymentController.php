@@ -58,7 +58,7 @@ class PaymentController extends Controller
     public function process(Request $request)
     {
         $packages = $this->getPackages();
-        
+
         $packageId = $request->package;
         if (!isset($packages[$packageId])) {
             return back()->with('error', 'Paket tidak valid');
@@ -92,7 +92,7 @@ class PaymentController extends Controller
 
         if (Auth::check()) {
             $user = Auth::user();
-            
+
             // SECURITY: Trust only backend status. If already paid, block payment.
             if ($user->package !== 'basic') {
                 return back()->with('error', 'Akun Anda sudah memiliki paket aktif (' . strtoupper($user->package) . '). Tidak dapat melakukan pembayaran baru.');
@@ -104,23 +104,23 @@ class PaymentController extends Controller
             }
         } else {
             $waNumber = WhatsappService::normalizeNumber($request->whatsapp);
-            
+
             // SECURITY: Trust only backend data. Check if email or WhatsApp already exists and has paid.
             $existingUser = User::where('email', $request->email)
-                               ->orWhere('whatsapp', $waNumber)
-                               ->first();
-            
+                ->orWhere('whatsapp', $waNumber)
+                ->first();
+
             if ($existingUser) {
                 // If user exists and has a paid package, block payment.
                 if ($existingUser->package !== 'basic') {
                     return back()->with('error', 'Email atau nomor WhatsApp ini sudah terdaftar dengan paket aktif. Silakan login untuk menggunakan layanan atau hubungi admin.');
                 }
-                
+
                 // If user exists but still basic, allow them to continue (retrying payment).
                 // REGENERATE password so the one sent via WA remains valid and synchronized.
                 $tempPassword = 'Guru' . rand(100, 999);
                 $user = $existingUser;
-                
+
                 $updateData = [
                     'name' => $request->name,
                     'whatsapp' => $waNumber,
@@ -136,7 +136,7 @@ class PaymentController extends Controller
             } else {
                 // Generate a friendly readable temporary password
                 $tempPassword = 'Guru' . rand(100, 999);
-                
+
                 $user = User::create([
                     'name' => $request->name,
                     'email' => $request->email,
@@ -149,7 +149,7 @@ class PaymentController extends Controller
         }
 
         $merchantRef = 'GM-' . time() . '-' . Str::random(5);
-        
+
         $data = [
             'method'         => $method,
             'merchant_ref'   => $merchantRef,
@@ -244,7 +244,7 @@ class PaymentController extends Controller
                     if ($referrer) {
                         $percent = 10;
                         $earningAmount = $transaction->amount * ($percent / 100);
-                        
+
                         // Create Earning Record
                         ReferralEarning::create([
                             'referrer_id' => $referrer->id,
@@ -253,14 +253,14 @@ class PaymentController extends Controller
                             'amount' => $earningAmount,
                             'percent' => $percent,
                         ]);
-                        
+
                         // Update Referrer Balance
                         $referrer->increment('referral_balance', $earningAmount);
-                        
+
                         Log::info("Referral Earning Processed: Referrer {$referrer->email} earned {$earningAmount} from {$user->email}");
                     }
                 }
-                
+
                 // Send WhatsApp Notification
                 if ($user->whatsapp) {
                     $packageName = $this->getPackages()[$transaction->package]['name'];
@@ -269,23 +269,23 @@ class PaymentController extends Controller
                     $message .= "Terima kasih telah berlangganan *{$packageName}* di Guru Masterpiece.\n\n";
                     $message .= "*Detail Akun Anda:*\n";
                     $message .= "📧 Email: `{$user->email}`\n";
-                    
+
                     if ($transaction->temporary_password) {
                         $message .= "🔑 Password: `{$transaction->temporary_password}`\n";
                         $message .= "\n_Silakan login dan segera ganti password Anda demi keamanan._\n";
                     } else {
                         $message .= "🔑 Password: (Gunakan password yang sudah Anda buat sebelumnya)\n";
                     }
-                    
-                    $message .= "\n🎁 *Kode Referral Anda:* `{$user->referral_code}`\n";
-                    $message .= "_Bagikan kode ini ke teman guru lainnya!_\n";
-                    
+
+                    // $message .= "\n🎁 *Kode Referral Anda:* `{$user->referral_code}`\n";
+                    // $message .= "_Bagikan kode ini ke teman guru lainnya!_\n";
+
                     $message .= "\n🔗 Login di: " . url('/login') . "\n\n";
                     $message .= "Selamat berkarya dengan asisten AI terhebat untuk guru!";
-                    
+
                     $this->whatsappService->sendMessage($user->whatsapp, $message);
                 }
-                
+
                 Log::info("Payment Success & WA Sent: User {$user->email}");
             } else {
                 Log::info("Payment Status Update: {$merchantRef} to {$status}");

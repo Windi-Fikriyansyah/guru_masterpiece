@@ -51,10 +51,15 @@
     @stack('styles')
 </head>
 <body class="bg-[#f8fafc] text-slate-900 font-sans overflow-hidden">
-    <div class="flex h-screen overflow-hidden">
+    <div x-data="{ sidebarOpen: false }" class="flex h-screen overflow-hidden">
+        <!-- Mobile sidebar overlay -->
+        <div x-show="sidebarOpen" @click="sidebarOpen = false" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-40 bg-gray-900/50 lg:hidden" style="display: none;"></div>
         <!-- Sidebar -->
-        <aside class="w-64 flex-shrink-0 hidden lg:flex flex-col bg-white border-r border-slate-200">
-            <div class="p-6">
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 transition-transform duration-300 lg:static lg:translate-x-0 flex flex-col">
+            <div class="p-6 relative">
+                <button @click="sidebarOpen = false" class="lg:hidden absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg">
                         <i data-lucide="layout-dashboard"></i>
@@ -173,23 +178,23 @@
         <!-- Main Content -->
         <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
             <!-- Header -->
-            <header class="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-slate-200">
+            <header class="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-6 py-4 bg-white/80 backdrop-blur-md border-b border-slate-200">
                 <div class="flex items-center gap-4">
-                    <button class="lg:hidden text-slate-500">
+                    <button @click="sidebarOpen = true" class="lg:hidden text-slate-500 hover:text-slate-700 transition-colors">
                         <i data-lucide="menu"></i>
                     </button>
-                    <h1 class="text-xl font-semibold text-dark">@yield('header', 'Dashboard')</h1>
+                    <h1 class="text-lg sm:text-xl font-semibold text-dark truncate max-w-[150px] sm:max-w-none">@yield('header', 'Dashboard')</h1>
                 </div>
 
                 <div class="flex items-center gap-4">
-                    <button class="p-2 text-slate-400 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors">
+                    <button class="hidden sm:block p-2 text-slate-400 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors">
                         <i data-lucide="search" class="w-5 h-5"></i>
                     </button>
-                    <button class="p-2 text-slate-400 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors relative">
+                    <button class="hidden sm:block p-2 text-slate-400 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors relative">
                         <i data-lucide="bell" class="w-5 h-5"></i>
                         <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
                     </button>
-                    <div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+                    <div class="hidden sm:block h-8 w-[1px] bg-slate-200 mx-2"></div>
                     @auth
                     <div class="flex items-center gap-3">
                         <div class="text-right hidden sm:block">

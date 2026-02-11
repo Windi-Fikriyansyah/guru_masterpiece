@@ -102,17 +102,17 @@
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         @foreach($filteredChannels as $channel)
                                             <label class="relative flex items-center p-4 border-2 border-slate-100 rounded-2xl cursor-pointer hover:border-primary/50 transition-all group has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-                                                <input type="radio" name="method" value="{{ $channel['code'] }}" class="hidden peer" required>
+                                                <input type="radio" name="method" value="{{ $channel['code'] }}" class="hidden" required>
                                                 <div class="flex items-center gap-4 w-full">
                                                     <div class="w-12 h-8 flex items-center justify-center">
-                                                        <img src="{{ $channel['icon_url'] }}" alt="{{ $channel['name'] }}" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 peer-checked:grayscale-0">
+                                                        <img src="{{ $channel['icon_url'] }}" alt="{{ $channel['name'] }}" class="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 group-has-[:checked]:grayscale-0">
                                                     </div>
                                                     <div class="flex-1">
                                                         <p class="font-bold text-dark text-sm">{{ $channel['name'] }}</p>
                                                         <p class="text-[10px] text-slate-400 font-medium">Proses Instan</p>
                                                     </div>
-                                                    <div class="w-5 h-5 border-2 border-slate-200 rounded-full flex items-center justify-center peer-checked:border-primary">
-                                                        <div class="w-2.5 h-2.5 bg-primary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+                                                    <div class="w-5 h-5 border-2 border-slate-200 rounded-full flex items-center justify-center group-has-[:checked]:border-primary">
+                                                        <div class="w-2.5 h-2.5 bg-primary rounded-full scale-0 group-has-[:checked]:scale-100 transition-transform"></div>
                                                     </div>
                                                 </div>
                                             </label>

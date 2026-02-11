@@ -15,6 +15,14 @@ Route::get('/paket-masterpiece', function () {
     return view('paket-masterpiece');
 })->name('paket-masterpiece');
 
+Route::get('/privacy-policy', function () {
+    return view('legal.privacy-policy');
+})->name('privacy-policy');
+
+Route::get('/terms-of-service', function () {
+    return view('legal.terms-of-service');
+})->name('terms-of-service');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

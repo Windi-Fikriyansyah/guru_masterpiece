@@ -267,5 +267,15 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+
+        <footer class="w-full lg:max-w-4xl max-w-[335px] py-8 flex flex-wrap justify-center gap-6 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <a href="{{ route('privacy-policy') }}" class="hover:text-primary transition-colors">
+                Kebijakan Privasi
+            </a>
+            <a href="{{ route('terms-of-service') }}" class="hover:text-primary transition-colors">
+                Ketentuan Layanan
+            </a>
+            <span class="text-slate-300">&copy; {{ date('Y') }} Guru Masterpiece</span>
+        </footer>
     </body>
 </html>

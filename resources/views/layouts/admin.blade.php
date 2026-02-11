@@ -59,7 +59,7 @@
                     <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg">
                         <i data-lucide="layout-dashboard"></i>
                     </div>
-                    <span class="text-xl font-bold tracking-tight text-dark uppercase">GURU MASTER</span>
+                    <span class="text-xl font-bold tracking-tight text-dark uppercase">GURU MASTERPIECE</span>
                 </div>
             </div>
 
@@ -158,6 +158,15 @@
                     <span class="font-medium">Sign In</span>
                 </a>
                 @endauth
+
+                <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap gap-x-4 gap-y-2 px-2">
+                    <a href="{{ route('privacy-policy') }}" class="text-[10px] font-bold text-slate-400 hover:text-primary transition-colors uppercase tracking-widest">
+                        Kebijakan Privasi
+                    </a>
+                    <a href="{{ route('terms-of-service') }}" class="text-[10px] font-bold text-slate-400 hover:text-primary transition-colors uppercase tracking-widest">
+                        Ketentuan Layanan
+                    </a>
+                </div>
             </div>
         </aside>
 

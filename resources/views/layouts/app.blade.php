@@ -32,6 +32,23 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <footer class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-200 mt-12">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <div class="flex gap-6">
+                        <a href="{{ route('privacy-policy') }}" class="hover:text-gray-800 transition-colors">
+                            Kebijakan Privasi
+                        </a>
+                        <a href="{{ route('terms-of-service') }}" class="hover:text-gray-800 transition-colors">
+                            Ketentuan Layanan
+                        </a>
+                    </div>
+                    <div>
+                        &copy; {{ date('Y') }} Guru Masterpiece. All rights reserved.
+                    </div>
+                </div>
+            </footer>
         </div>
+        <script>lucide.createIcons();</script>
     </body>
 </html>

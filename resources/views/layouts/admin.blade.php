@@ -133,10 +133,10 @@
                     <i data-lucide="play-circle" class="w-5 h-5"></i>
                     <span class="font-medium">Video Tutorial</span>
                 </a>
-                <a href="{{ route('admin.referral') }}" class="sidebar-link {{ request()->routeIs('admin.referral') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.referral') ? '' : 'text-slate-500 hover:text-primary hover:bg-slate-50' }} rounded-xl transition-all duration-200">
+                {{-- <a href="{{ route('admin.referral') }}" class="sidebar-link {{ request()->routeIs('admin.referral') ? 'active' : '' }} flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.referral') ? '' : 'text-slate-500 hover:text-primary hover:bg-slate-50' }} rounded-xl transition-all duration-200">
                     <i data-lucide="share-2" class="w-5 h-5"></i>
                     <span class="font-medium">Referral & Bonus</span>
-                </a>
+                </a> --}}
                 @endauth
             </nav>
 

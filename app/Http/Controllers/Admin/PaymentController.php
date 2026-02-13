@@ -272,7 +272,7 @@ class PaymentController extends Controller
 
                     if ($transaction->temporary_password) {
                         $message .= "🔑 Password: `{$transaction->temporary_password}`\n";
-                        $message .= "\n_Silakan login dan segera ganti password Anda demi keamanan._\n";
+                        $message .= "\n_Silakan login ke aplikasinya._\n";
                     } else {
                         $message .= "🔑 Password: (Gunakan password yang sudah Anda buat sebelumnya)\n";
                     }

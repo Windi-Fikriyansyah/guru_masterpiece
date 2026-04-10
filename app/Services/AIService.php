@@ -9,7 +9,7 @@ class AIService
 {
     protected string $apiKey;
     protected string $baseUrl = 'https://openrouter.ai/api/v1';
-    protected string $model = 'arcee-ai/trinity-large-preview:free';
+    protected string $model = 'nvidia/nemotron-3-super-120b-a12b:free';
 
     public function __construct()
     {
